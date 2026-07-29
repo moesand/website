@@ -4,11 +4,18 @@
     box-sizing: border-box;
 }
 
-body {
+/* Sätt muspekaren på hela sidan */
+html, body {
+    width: 100%;
+    height: 100%;
     background-color: #ffffff;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #000000;
-    min-height: 100vh;
+    /* Muspekare (crosshair tills du lägger in 'peka.png') */
+    cursor: url('peka.png'), crosshair;
+}
+
+body {
     padding: 3rem;
     display: flex;
     flex-direction: column;
@@ -32,7 +39,16 @@ body {
     align-items: flex-end;
     width: 100%;
     position: relative;
-    z-index: 10; /* Gör att text och länkar ligger OVANFÖR ritytan så de går att klicka på */
+    z-index: 10;
+    /* Låter klick "passera igenom" tomma ytor i text/bild-behållarna så man kan rita där */
+    pointer-events: none; 
+}
+
+/* Gör så att länkar och text i containern fortfarande går att markera/klicka på */
+.side-menu a,
+.bio-text,
+.image-wrapper {
+    pointer-events: auto;
 }
 
 /* Vänstra sektionen (Bild + Meny) */
@@ -40,7 +56,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    width: 480px; /* Gör bilden stor och placerar den närmare texten */
+    width: 480px;
 }
 
 /* Menyn placeras högre upp */
@@ -58,7 +74,6 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Det lilla vandräta strecket framför menyn */
 .side-menu li::before {
     content: "";
     position: absolute;
@@ -81,7 +96,6 @@ body {
     opacity: 0.6;
 }
 
-/* Bilden */
 .image-wrapper img {
     width: 100%;
     height: auto;
@@ -106,16 +120,13 @@ body {
     color: #222;
 }
 
-/* 3. Canvas för rita-funktionen & Egna muspekaren */
+/* 3. Canvas-ytan som täcker hela fönstret */
 #draw-canvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 5; /* Ligger direkt under länkarna så du kan rita på hela bakgrunden */
-    
-    /* MUSPEKARE: Byt ut 'peka.png' mot din egen valda bild när du har en fil.
-       Tills vidare visas ett trådkors (crosshair) som gör det tydligt att man kan rita. */
+    z-index: 1;
     cursor: url('peka.png'), crosshair;
 }
