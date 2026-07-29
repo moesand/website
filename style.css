@@ -15,33 +15,33 @@ body {
     justify-content: space-between;
 }
 
-/* 1. Namnet uppe till vänster - förstorat */
+/* Namnet uppe till vänster */
 .site-header .logo {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 3.2rem; /* Ökat från 2.2rem till 3.2rem */
+    font-size: 3.2rem;
 }
 
 /* Huvudlayout */
 .content-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* Håller nederkanten i linje */
+    align-items: flex-end;
     width: 100%;
 }
 
-/* Vänstra sektionen */
+/* Vänstra sektionen: Bild + Meny */
 .left-section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    width: 380px; /* 2. Ökat från 280px till 380px så bilden blir större */
+    width: 480px; /* Ökat från 380px -> bilden blir större OCH hamnar närmare texten */
 }
 
-/* 3. Menyn flyttas uppåt */
+/* Menyn placeras ännu högre upp */
 .side-menu {
-    margin-top: -80px; /* Flyttar upp menyn högre på kanten */
+    margin-top: -160px; /* Ändrat från -80px -> flyttar upp menyn rejält */
 }
 
 .side-menu ul {
@@ -54,7 +54,6 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Det lilla strecket framför menyn */
 .side-menu li::before {
     content: "";
     position: absolute;
