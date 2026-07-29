@@ -1,6 +1,7 @@
 const canvas = document.getElementById('draw-canvas');
 const ctx = canvas.getContext('2d');
 
+// Sätt storlek på canvas till hela fönstret
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -12,20 +13,19 @@ let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
 
-// Inställningar för pennan
+// Pennans inställningar
 ctx.strokeStyle = '#000000'; // Svart färg
-ctx.lineWidth = 2.5;          // Linjens tjocklek
+ctx.lineWidth = 2.5;          // Linjebredd
 ctx.lineCap = 'round';
 ctx.lineJoin = 'round';
 
-// Starta ritning vid musklick
-window.addEventListener('mousedown', (e) => {
+// Lyssna på musen DIREKT på canvas-elementet
+canvas.addEventListener('mousedown', (e) => {
     isDrawing = true;
     [lastX, lastY] = [e.clientX, e.clientY];
 });
 
-// Rita linje när musen rör sig
-window.addEventListener('mousemove', (e) => {
+canvas.addEventListener('mousemove', (e) => {
     if (!isDrawing) return;
     
     ctx.beginPath();
@@ -36,5 +36,4 @@ window.addEventListener('mousemove', (e) => {
     [lastX, lastY] = [e.clientX, e.clientY];
 });
 
-// Sluta rita när man släpper musknappen
 window.addEventListener('mouseup', () => isDrawing = false);
