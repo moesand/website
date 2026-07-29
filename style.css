@@ -12,7 +12,7 @@ html, body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #000000;
     /* Muspekare (crosshair tills du lägger in 'peka.png') */
-    cursor: url('peka.png'), crosshair;
+    cursor: url('https://cur.cursors-4u.net/user/use-1/use160.ani'), url('https://cur.cursors-4u.net/user/use-1/use160.png'), crosshair !important;
 }
 
 body {
