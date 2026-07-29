@@ -17,7 +17,7 @@ body {
     overflow-x: hidden;
 }
 
-/* 1. Förstorat namn uppe till vänster */
+/* 1. Namnet uppe till vänster */
 .site-header .logo {
     font-family: 'Playfair Display', serif;
     font-style: italic;
@@ -25,24 +25,25 @@ body {
     font-size: 3.5rem;
 }
 
-/* Huvudlayout */
+/* 2. Huvudlayout */
 .content-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
-    z-index: 10; /* Läggs ovanför canvasen så att text/länkar går att klicka på */
+    position: relative;
+    z-index: 10; /* Gör att text och länkar ligger OVANFÖR ritytan så de går att klicka på */
 }
 
-/* 2. Vänstra sektionen (Bredare så bilden blir större och närmare texten) */
+/* Vänstra sektionen (Bild + Meny) */
 .left-section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    width: 480px;
+    width: 480px; /* Gör bilden stor och placerar den närmare texten */
 }
 
-/* 3. Menyn flyttas uppåt */
+/* Menyn placeras högre upp */
 .side-menu {
     margin-top: -140px;
 }
@@ -57,7 +58,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Det lilla strecket framför menyn */
+/* Det lilla vandräta strecket framför menyn */
 .side-menu li::before {
     content: "";
     position: absolute;
@@ -105,13 +106,16 @@ body {
     color: #222;
 }
 
-/* Canvas-ytan för att rita */
+/* 3. Canvas för rita-funktionen & Egna muspekaren */
 #draw-canvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1; /* Ligger bakom texten så att man inte blockerar klick */
-    pointer-events: none; /* Tillåter musrörleser att passera igenom */
+    z-index: 5; /* Ligger direkt under länkarna så du kan rita på hela bakgrunden */
+    
+    /* MUSPEKARE: Byt ut 'peka.png' mot din egen valda bild när du har en fil.
+       Tills vidare visas ett trådkors (crosshair) som gör det tydligt att man kan rita. */
+    cursor: url('peka.png'), crosshair;
 }
