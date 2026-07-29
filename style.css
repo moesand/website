@@ -100,3 +100,13 @@ body {
     line-height: 1.6;
     color: #222;
 }
+/* Gör ritytan heltäckande men låter klick gå igenom när man inte ritar */
+#draw-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99; /* Ligger över innehållet */
+    pointer-events: none; /* Gör så att man fortfarande kan klicka på länkar/menyn! */
+}
