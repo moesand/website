@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/* Sätt den nya PNG-muspekaren på ALLA element */
+/* Sätt den anpassade muspekaren om du använder 'pencil.png' */
 *, html, body, a, button, img {
     cursor: url('pencil.png') 0 0, auto !important;
 }
@@ -32,21 +32,14 @@ body {
 .content-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start; /* Justerar så menyn stannar i överkant */
     width: 100%;
+    margin-top: 2rem;
 }
 
-/* Vänstra sektionen (Bild + Meny) */
+/* Vänstra sektionen (Endast Menyn) */
 .left-section {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: 480px;
-}
-
-/* Menyn */
-.side-menu {
-    margin-top: -140px;
+    width: 200px;
 }
 
 .side-menu ul {
@@ -56,7 +49,7 @@ body {
 .side-menu li {
     position: relative;
     padding-left: 20px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .side-menu li::before {
@@ -81,7 +74,16 @@ body {
     opacity: 0.6;
 }
 
-/* Bilden */
+/* Högra sektionen (Bild + Text under) */
+.right-section {
+    max-width: 600px; /* Förstorad bredd för att ge mer utrymme åt bilden */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Bilden förstorad ovanför texten */
 .image-wrapper img {
     width: 100%;
     height: auto;
@@ -89,11 +91,7 @@ body {
     object-fit: cover;
 }
 
-/* Högra sektionen: Texten */
-.right-section {
-    max-width: 440px;
-}
-
+/* Texten under bilden */
 .bio-text h2 {
     font-size: 1.3rem;
     font-weight: normal;
