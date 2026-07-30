@@ -1,60 +1,57 @@
+// Körs så fort sidan laddats
 document.addEventListener("DOMContentLoaded", () => {
-    const menuAbout = document.getElementById('menu-about');
-    const menuContact = document.getElementById('menu-contact');
-    const menuConsult = document.getElementById('menu-consult');
     
-    const aboutCard = document.getElementById('about-card');
-    const contactCard = document.getElementById('contact-card');
-    const consultCard = document.getElementById('consult-card');
-    
-    const closeAbout = document.getElementById('close-about');
-    const closeContact = document.getElementById('close-contact');
-    const closeConsult = document.getElementById('close-consult');
+    // Lista på alla dina menyval och deras popup-kort
+    const menuItems = [
+        { btnId: 'menu-about',   cardId: 'about-card',   closeId: 'close-about' },
+        { btnId: 'menu-consult', cardId: 'consult-card', closeId: 'close-consult' },
+        { btnId: 'menu-contact', cardId: 'contact-card', closeId: 'close-contact' }
+    ];
 
-    // Hjälpfunktion för att dölja alla kort
-    function closeAll() {
-        if (aboutCard) aboutCard.classList.add('hidden');
-        if (contactCard) contactCard.classList.add('hidden');
-        if (consultCard) consultCard.classList.add('hidden');
-    }
-
-    // ABOUT CLICK
-    if (menuAbout && aboutCard) {
-        menuAbout.addEventListener('click', (e) => {
-            e.preventDefault();
-            const isHidden = aboutCard.classList.contains('hidden');
-            closeAll();
-            if (isHidden) aboutCard.classList.remove('hidden');
+    // Funktion för att dölja ALLA popup-kort
+    function closeAllCards() {
+        menuItems.forEach(item => {
+            const card = document.getElementById(item.cardId);
+            if (card) {
+                card.classList.add('hidden');
+            }
         });
     }
 
-    // CONTACT CLICK
-    if (menuContact && contactCard) {
-        menuContact.addEventListener('click', (e) => {
-            e.preventDefault();
-            const isHidden = contactCard.classList.contains('hidden');
-            closeAll();
-            if (isHidden) contactCard.classList.remove('hidden');
-        });
-    }
+    // Koppla ihop varje knapp med sitt kort
+    menuItems.forEach(item => {
+        const btn = document.getElementById(item.btnId);
+        const card = document.getElementById(item.cardId);
+        const closeBtn = document.getElementById(item.closeId);
 
-    // CONSULT CLICK
-    if (menuConsult && consultCard) {
-        menuConsult.addEventListener('click', (e) => {
-            e.preventDefault();
-            const isHidden = consultCard.classList.contains('hidden');
-            closeAll();
-            if (isHidden) consultCard.classList.remove('hidden');
-        });
-    }
+        // Klick på menyval
+        if (btn && card) {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
 
-    // STÄNG-KNAPPAR
-    if (closeAbout) closeAbout.addEventListener('click', () => aboutCard.classList.add('hidden'));
-    if (closeContact) closeContact.addEventListener('click', () => contactCard.classList.add('hidden'));
-    if (closeConsult) closeConsult.addEventListener('click', () => consultCard.classList.add('hidden'));
+                const isHidden = card.classList.contains('hidden');
+                closeAllCards(); // Stäng alla andra först
 
-    // STÄNG MED ESCAPE
+                if (isHidden) {
+                    card.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Klick på kryss/stängningsknapp
+        if (closeBtn && card) {
+            closeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                card.classList.add('hidden');
+            });
+        }
+    });
+
+    // Stäng alla popups om man trycker på ESC
     window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeAll();
+        if (e.key === 'Escape') {
+            closeAllCards();
+        }
     });
 });
