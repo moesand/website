@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/* Sätt den anpassade muspekaren om du använder 'pencil.png' */
+/* Sätt den anpassade muspekaren */
 *, html, body, a, button, img {
     cursor: url('pencil.png') 0 0, auto !important;
 }
@@ -13,11 +13,12 @@ body {
     background-color: #ffffff;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #000000;
-    min-height: 100vh;
-    padding: 3rem;
+    height: 100vh; /* Låser höjden till exakt skärmens höjd för att slippa scroll */
+    padding: 2.5rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden; /* Förhindrar scrollbar */
 }
 
 /* Namnet uppe till vänster */
@@ -25,21 +26,24 @@ body {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 
 /* Huvudlayout */
 .content-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Justerar så menyn stannar i överkant */
+    align-items: center; /* Centrerar vänster sektion (menyn) och höger sektion vertikalt mot varandra */
     width: 100%;
-    margin-top: 2rem;
+    flex: 1; /* Tar upp tillgängligt vertikalt utrymme mellan header och botten */
+    padding: 1rem 0;
 }
 
-/* Vänstra sektionen (Endast Menyn) */
+/* Vänstra sektionen (Menyn centrerad vertikalt) */
 .left-section {
     width: 200px;
+    display: flex;
+    align-items: center;
 }
 
 .side-menu ul {
@@ -74,32 +78,32 @@ body {
     opacity: 0.6;
 }
 
-/* Högra sektionen (Bild + Text under) */
+/* Högra sektionen (Bild + Text) */
 .right-section {
-    max-width: 600px; /* Förstorad bredd för att ge mer utrymme åt bilden */
+    max-width: 520px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.2rem;
 }
 
-/* Bilden förstorad ovanför texten */
+/* Bilden - begränsad maxhöjd så att hela innehållet alltid får plats utan scroll */
 .image-wrapper img {
     width: 100%;
-    height: auto;
+    max-height: 45vh; /* Bilden tar max 45% av skärmhöjden */
     display: block;
     object-fit: cover;
 }
 
 /* Texten under bilden */
 .bio-text h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: normal;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .bio-text p {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.88rem;
+    line-height: 1.5;
     color: #222;
 }
