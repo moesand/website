@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const aboutCard = document.getElementById('about-card');
     const closeAbout = document.getElementById('close-about');
 
-    // Öppna kortet
+    // Öppna rutan när man klickar på About
     if (menuAbout && aboutCard) {
         menuAbout.addEventListener('click', (e) => {
             e.preventDefault();
@@ -11,14 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Stäng kortet med krysset
+    // Stäng rutan med krysset
     if (closeAbout && aboutCard) {
         closeAbout.addEventListener('click', () => {
             aboutCard.classList.add('hidden');
         });
     }
 
-    // Stäng kortet med Escape-tangenten
+    // Stäng rutan med Escape-tangenten
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && aboutCard) {
             aboutCard.classList.add('hidden');
