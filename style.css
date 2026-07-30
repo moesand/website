@@ -195,5 +195,5 @@ body {
 }
 /* Flyttar BARA ner texten i de två övre rutorna */
 .who-box, .what-box {
-    padding-top: 5.4rem; /* Öka detta nummer om du vill skjuta ner texten ännu mer */
+    padding-top: 6.3rem; /* Öka detta nummer om du vill skjuta ner texten ännu mer */
 }
