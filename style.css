@@ -24,7 +24,7 @@ body {
 
 /* Header */
 .site-header {
-    z-index: 1001; /* Ligger ovanför overlay så namnet alltid syns klart */
+    z-index: 1001; /* Ser till att loggan/namnet ligger överst */
 }
 
 .site-header .logo {
@@ -44,11 +44,12 @@ body {
     padding: 1rem 0;
 }
 
-/* Meny (Vertikalt centrerad) */
+/* Meny (Vertikalt centrerad & liggande överst) */
 .left-section {
     width: 200px;
     display: flex;
     align-items: center;
+    z-index: 1001; /* Placerar menyn ovanför projects-fönstret */
 }
 
 .side-menu ul {
@@ -111,7 +112,7 @@ body {
     color: #222;
 }
 
-/* --- POPUP KORT (GEMENSAM BAS FÖR ABOUT, CONSULT, CONTACT) --- */
+/* --- POPUP KORT (ABOUT, CONSULT, CONTACT) --- */
 .content-card {
     position: absolute;
     top: 50%;
@@ -131,7 +132,7 @@ body {
     box-shadow: none; 
     
     padding: 2.2rem;
-    z-index: 100;
+    z-index: 1000;
     transition: all 0.3s ease-in-out;
 }
 
@@ -284,15 +285,16 @@ body {
 }
 
 
-/* --- PROJECTS SPECIFIK STYLING (STOR RUTA) --- */
+/* --- PROJECTS SPECIFIK STYLING (ANPASSAD FÖR ATT LÄMNA PLATS ÅT MENYN) --- */
 .projects-modal {
     position: fixed;
-    top: 6rem; /* Börjar direkt under din header/namn */
-    left: 0;
+    top: 6.5rem;       /* Börjar under namnet */
+    left: 240px;      /* Startar till höger om sidomenyn så den förblir synlig */
     right: 0;
     bottom: 0;
     background-color: #ffffff;
-    border-top: 1.5px solid #000000; /* Linje som bryter av direkt under namnet */
+    border-top: 1.5px solid #000000;  /* Horisontell linje under namnet */
+    border-left: 1.5px solid #000000; /* Vertikal linje till höger om menyn */
     z-index: 1000;
     padding: 2.5rem 3rem;
     display: flex;
