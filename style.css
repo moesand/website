@@ -107,37 +107,36 @@ body {
     color: #222;
 }
 
-/* --- ABOUT KORT MED ROSA PNG-BAKGRUND --- */
+/* --- ABOUT POPUP MED DIN PNG-BILD SOM BAKGRUND --- */
 .content-card {
     position: absolute;
     top: 50%;
     left: 42%;
     transform: translate(-50%, -50%);
     width: 90%;
-    max-width: 560px;
-    height: 560px;
+    max-width: 580px;
+    height: 580px; /* Gör rutan kvadratisk så att din PNG passar perfekt */
     
-    background-color: #ffffff; /* Vit bakgrund under bilden */
-    background-image: url('aboutbox.png'); /* SÄKERSTÄLL ATT BILDEN HETER EXACT OM DENNA I GITHUB */
+    background-image: url('aboutbox.png'); /* Säkerställ att bilden på GitHub heter exakt aboutbox.png */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     border: none;
     
-    padding: 2.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 2.2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     z-index: 100;
     transition: all 0.3s ease-in-out;
 }
 
-/* Döljer kortet */
+/* Döljer rutan */
 .content-card.hidden {
     opacity: 0;
     pointer-events: none;
     transform: translate(-50%, -45%);
 }
 
-/* Stängningsknapp */
+/* Stängningsknapp (Rosa för att matcha dina linjer) */
 .close-btn {
     position: absolute;
     top: 1rem;
@@ -146,89 +145,48 @@ body {
     border: none;
     font-size: 1.8rem;
     line-height: 1;
-    color: #000000;
+    color: #ff00ff;
     cursor: pointer;
     z-index: 10;
 }
 
 .close-btn:hover {
-    color: #ff00ff;
+    opacity: 0.6;
 }
 
-/* --- GRID-LAYOUT (2x2 RUTOR) --- */
+/* --- 2x2 RUTNÄT SOM MATCHAR RUTERNA I PNG-BILDEN --- */
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     width: 100%;
     height: 100%;
-    gap: 1.5rem;
+    gap: 1.5rem; /* Marginaler till de rosa linjerna i mitten */
 }
 
 .grid-box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 0.8rem;
+    justify-content: flex-start;
+    padding: 2.8rem 1rem 1rem 1rem; /* Ger utrymme i toppen för dina handritade rubriker i bilden */
     color: #000000;
     overflow: hidden;
 }
 
-.grid-box h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: #000000;
-    margin-bottom: 0.3rem;
-}
-
-.grid-box .subtitle {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #666666;
-}
-
-.grid-box .intro-text {
-    font-size: 0.78rem;
+/* Textstilar */
+.grid-box p {
+    font-size: 0.8rem;
     line-height: 1.45;
-    color: #222222;
+    color: #111111;
 }
 
-.grid-box h3 {
+.grid-box ul, .grid-box ol {
+    padding-left: 1.2rem;
     font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #000000;
-    margin-bottom: 0.5rem;
-}
-
-.focus-list, .journey-list {
-    list-style: none;
-    padding: 0;
-}
-
-.focus-list li, .journey-list li {
-    font-size: 0.73rem;
     line-height: 1.5;
-    color: #333333;
+    color: #111111;
 }
 
-.focus-list li::before {
-    content: "• ";
-    color: #ff00ff;
-}
-
-.journey-list {
-    counter-reset: journey-counter;
-}
-
-.journey-list li {
-    counter-increment: journey-counter;
-}
-
-.journey-list li::before {
-    content: counter(journey-counter) ". ";
-    color: #ff00ff;
-    font-weight: bold;
+.grid-box li {
+    margin-bottom: 0.2rem;
 }
