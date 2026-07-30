@@ -1,42 +1,60 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Om du lägger till fler kategorier senare, lägg till dem i dessa listor
-    const sections = [
-        { btn: 'menu-about', card: 'about-card', close: 'close-about' },
-        { btn: 'menu-contact', card: 'contact-card', close: 'close-contact' }
-    ];
+    const menuAbout = document.getElementById('menu-about');
+    const menuContact = document.getElementById('menu-contact');
+    
+    const aboutCard = document.getElementById('about-card');
+    const contactCard = document.getElementById('contact-card');
+    
+    const closeAbout = document.getElementById('close-about');
+    const closeContact = document.getElementById('close-contact');
 
-    function closeAllCards() {
-        sections.forEach(section => {
-            const card = document.getElementById(section.card);
-            if (card) card.classList.add('hidden');
+    // Funktion för att dölja alla popups
+    function closeAll() {
+        if (aboutCard) aboutCard.classList.add('hidden');
+        if (contactCard) contactCard.classList.add('hidden');
+    }
+
+    // Öppna/Växla ABOUT
+    if (menuAbout && aboutCard) {
+        menuAbout.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isHidden = aboutCard.classList.contains('hidden');
+            closeAll();
+            if (isHidden) {
+                aboutCard.classList.remove('hidden');
+            }
         });
     }
 
-    sections.forEach(section => {
-        const btn = document.getElementById(section.btn);
-        const card = document.getElementById(section.card);
-        const close = document.getElementById(section.close);
+    // Öppna/Växla CONTACT
+    if (menuContact && contactCard) {
+        menuContact.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isHidden = contactCard.classList.contains('hidden');
+            closeAll();
+            if (isHidden) {
+                contactCard.classList.remove('hidden');
+            }
+        });
+    }
 
-        if (btn && card) {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const isHidden = card.classList.contains('hidden');
-                closeAllCards(); // Stäng andra om de är öppna
-                if (isHidden) card.classList.remove('hidden');
-            });
-        }
+    // Stäng-knappar (krysset)
+    if (closeAbout) {
+        closeAbout.addEventListener('click', () => {
+            aboutCard.classList.add('hidden');
+        });
+    }
 
-        if (close && card) {
-            close.addEventListener('click', () => {
-                card.classList.add('hidden');
-            });
-        }
-    });
+    if (closeContact) {
+        closeContact.addEventListener('click', () => {
+            contactCard.classList.add('hidden');
+        });
+    }
 
-    // Stäng med Escape
+    // Stäng med Escape-tangenten
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            closeAllCards();
+            closeAll();
         }
     });
 });
