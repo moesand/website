@@ -107,7 +107,7 @@ body {
     color: #222;
 }
 
-/* --- ABOUT POPUP (HELT GENOMSKINLIG UTAN VIT BAKGRUND) --- */
+/* --- POPUP KORT (GEMENSAM BAS) --- */
 .content-card {
     position: absolute;
     top: 50%;
@@ -118,25 +118,22 @@ body {
     aspect-ratio: 1 / 1; 
     height: auto;
     
-    /* Helt genomskinlig bakgrund */
     background-color: transparent;
-    background-image: url('aboutbox.png'); /* Se till att filnamnet matchar på GitHub */
+    background-image: url('aboutbox.png'); 
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     border: none;
-    box-shadow: none; /* Ingen skugga runt rutan */
+    box-shadow: none; 
     
     padding: 2.2rem;
     z-index: 100;
     transition: all 0.3s ease-in-out;
 }
 
-/* Döljer popupen */
+/* Döljer popupen helt när .hidden är aktiv */
 .content-card.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: translate(-50%, -45%);
+    display: none !important;
 }
 
 /* Stängningsknapp (Ligger precis ovanför det rosa rutnätet) */
@@ -148,7 +145,7 @@ body {
     border: none;
     font-size: 2rem;
     line-height: 1;
-    color: #ff00ff; /* Matchar den rosa färgen på linjerna */
+    color: #ff00ff; 
     cursor: pointer;
     z-index: 10;
 }
@@ -157,7 +154,7 @@ body {
     opacity: 0.5;
 }
 
-/* --- 2x2 RUTNÄT FÖR TEXTEN --- */
+/* --- ABOUT: 2x2 RUTNÄT FÖR TEXTEN --- */
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -171,9 +168,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 3.5rem 1rem 1rem 1rem; /* Lämnar plats för dina handritade rubriker i PNG-bilden */
+    padding: 3.5rem 1rem 1rem 1rem;
     color: #000000;
     overflow: hidden;
+}
+
+/* Flyttar BARA ner texten i de två övre rutorna */
+.who-box, .what-box {
+    padding-top: 7.5rem; 
 }
 
 /* Textstil inuti rutorna */
@@ -193,19 +195,13 @@ body {
 .grid-box li {
     margin-bottom: 0.2rem;
 }
-/* Flyttar BARA ner texten i de två övre rutorna */
-.who-box, .what-box {
-    padding-top: 7.5rem; /* Öka detta nummer om du vill skjuta ner texten ännu mer */
-}
-/* --- CONTACT SPECIFIK STYLING --- */
 
-/* Här kopplar vi på den nya bilden */
+/* --- CONTACT SPECIFIK STYLING --- */
 .contact-layout {
     background-image: url('contact.png') !important;
     background-size: contain;
-    /* Om du vill ha en annan storlek på just denna bild, ändra max-width här: */
     max-width: 500px; 
-    aspect-ratio: 1 / 1; /* Eller det förhållande bilden har */
+    aspect-ratio: 1 / 1;
 }
 
 .contact-content {
@@ -215,14 +211,14 @@ body {
     align-items: center;
     height: 100%;
     text-align: center;
-    padding-top: 2rem; /* Justera beroende på var dina linjer är i bilden */
+    padding-top: 2rem; 
 }
 
-.contact-content h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    text-transform: lowercase; /* Valfritt, för en stilren look */
+.contact-email a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #000;
+    text-decoration: none;
 }
 
 .contact-content a {
@@ -234,11 +230,11 @@ body {
 }
 
 .contact-content a:hover {
-    border-bottom: 1px solid #ff00ff; /* Rosa linje vid hovring */
+    border-bottom: 1px solid #ff00ff; 
 }
 
 .social-links {
     margin-top: 1.5rem;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
