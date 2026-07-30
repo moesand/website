@@ -23,6 +23,10 @@ body {
 }
 
 /* Header */
+.site-header {
+    z-index: 1001; /* Ligger ovanför overlay så namnet alltid syns klart */
+}
+
 .site-header .logo {
     font-family: 'Playfair Display', serif;
     font-style: italic;
@@ -107,7 +111,7 @@ body {
     color: #222;
 }
 
-/* --- POPUP KORT (GEMENSAM BAS) --- */
+/* --- POPUP KORT (GEMENSAM BAS FÖR ABOUT, CONSULT, CONTACT) --- */
 .content-card {
     position: absolute;
     top: 50%;
@@ -132,7 +136,7 @@ body {
 }
 
 /* Döljer popupen helt när .hidden är aktiv */
-.content-card.hidden {
+.hidden {
     display: none !important;
 }
 
@@ -277,4 +281,113 @@ body {
 #contact-card .close-btn {
     top: 1rem;
     right: 1rem;
+}
+
+
+/* --- PROJECTS SPECIFIK STYLING (STOR RUTA) --- */
+.projects-modal {
+    position: fixed;
+    top: 6rem; /* Börjar direkt under din header/namn */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    border-top: 1.5px solid #000000; /* Linje som bryter av direkt under namnet */
+    z-index: 1000;
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#projects-card .close-btn {
+    top: 1.5rem;
+    right: 3rem;
+}
+
+/* Symbol-knapparna längst upp */
+.project-symbols-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.symbol-btn {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.4;
+    transition: all 0.2s ease;
+}
+
+.symbol-btn:hover,
+.symbol-btn.active {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.symbol-btn img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.symbol-btn span {
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Behållare för det scrollbara projektinnehållet */
+.project-details-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+.project-view {
+    display: none;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+}
+
+.project-view.active {
+    display: block;
+}
+
+.project-view h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+}
+
+.project-subtitle {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.project-body p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+.project-img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    margin: 1.5rem 0;
+    border-radius: 2px;
 }
