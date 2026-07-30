@@ -200,7 +200,7 @@ body {
 .contact-layout {
     background-image: url('contact.png') !important;
     background-size: contain;
-    max-width: 580px; 
+    max-width: 640px; 
     aspect-ratio: 1 / 1;
 }
 
