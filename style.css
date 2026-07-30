@@ -108,16 +108,23 @@ body {
     color: #222;
 }
 
-/* --- BREV-RUTA / ABOUT-KORT --- */
+/* --- BREV-RUTA MED PNG-RUTNÄT --- */
 .content-card {
     position: absolute;
     top: 50%;
-    left: 42%; /* Justerat lite så den bredare rutan ligger snyggt */
+    left: 42%;
     transform: translate(-50%, -50%);
     width: 90%;
-    max-width: 680px; /* Gjort rutan större/bredare för tidslinjen */
-    background-color: #ffffff;
-    border: 1px solid #000000;
+    max-width: 580px;
+    height: 580px; /* Gör rutan kvadratisk */
+    
+    background-color: #ffffff; /* Vit bakgrund under den genomskinliga PNG-bilden */
+    background-image: url('aboutbox.png'); /* Ändra till .jpg om din fil slutar på .jpg */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    
     padding: 2.5rem;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     z-index: 100;
@@ -130,88 +137,100 @@ body {
     transform: translate(-50%, -45%);
 }
 
-/* --- TIDSLINJE STILAR --- */
-.timeline-section {
-    margin-top: 2rem;
-    padding-top: 1rem;
+/* Stängningsknapp (Svart/Rosa) */
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: #000000;
+    cursor: pointer;
+    z-index: 10;
 }
 
-.timeline-section h3 {
-    font-size: 0.85rem;
+.close-btn:hover {
+    color: #ff00ff; /* Blir rosa när man håller muspekaren över */
+}
+
+/* --- GRID-LAYOUT (2x2 RUTOR) --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    gap: 1.5rem; /* Marginal till de rosa linjerna */
+}
+
+.grid-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    color: #000000; /* Svart text */
+    overflow: hidden;
+}
+
+/* Textstilar */
+.grid-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 0.3rem;
+}
+
+.grid-box .subtitle {
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: 2.5rem;
-    color: #333;
+    color: #666666;
 }
 
-.timeline {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 90px; /* Höjd för att få plats med text både över och under */
+.grid-box .intro-text {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: #222222;
+}
+
+.grid-box h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #000000;
     margin-bottom: 0.5rem;
 }
 
-/* Den svarta horisontella linjen */
-.timeline-line {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: #000000;
-    z-index: 1;
-    transform: translateY(-50%);
+/* Listor i de nedre rutorna */
+.focus-list, .journey-list {
+    list-style: none;
+    padding: 0;
 }
 
-/* Varje punkt och text-behållare */
-.timeline-item {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 22%; /* Jämn spridning av de 4 punkterna */
+.focus-list li, .journey-list li {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: #333333;
 }
 
-/* Cirkelpungten på linjen */
-.timeline-dot {
-    width: 9px;
-    height: 9px;
-    background-color: #000000;
-    border-radius: 50%;
+.focus-list li::before {
+    content: "• ";
+    color: #ff00ff; /* Rosa punkt */
 }
 
-/* Textens utseende */
-.timeline-text {
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    color: #111;
-    text-align: center;
-    white-space: nowrap;
+.journey-list {
+    counter-reset: journey-counter;
 }
 
-/* Text placerad OVANFÖR linjen */
-.timeline-item.top {
-    margin-bottom: 24px; /* Skjuter upp texten ovanför linjen */
+.journey-list li {
+    counter-increment: journey-counter;
 }
 
-.timeline-item.top .timeline-text {
-    margin-bottom: 8px;
-}
-
-/* Text placerad UNDER linjen */
-.timeline-item.bottom {
-    margin-top: 24px; /* Skjuter ner texten under linjen */
-}
-
-.timeline-item.bottom .timeline-text {
-    margin-top: 8px;
-}
-    color: #777 !important;
-    margin-top: 1.5rem;
-    margin-bottom: 0 !important;
+.journey-list li::before {
+    content: counter(journey-counter) ". ";
+    color: #ff00ff; /* Rosa numrering */
+    font-weight: bold;
 }
