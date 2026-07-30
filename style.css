@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/* Anpassad muspekare om du använder pencil.png */
+/* Muspekare */
 *, html, body, a, button, img {
     cursor: url('pencil.png') 0 0, auto !important;
 }
@@ -40,7 +40,7 @@ body {
     padding: 1rem 0;
 }
 
-/* Meny */
+/* Meny (Vertikalt centrerad) */
 .left-section {
     width: 200px;
     display: flex;
@@ -79,14 +79,13 @@ body {
     opacity: 0.6;
 }
 
-/* Högra sektionen (startsidan) */
+/* Höger sektion (Startsida) */
 .right-section {
     max-width: 520px;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    transition: opacity 0.3s ease;
 }
 
 .image-wrapper img {
@@ -108,18 +107,18 @@ body {
     color: #222;
 }
 
-/* --- BREV-RUTA MED PNG-RUTNÄT --- */
+/* --- ABOUT KORT MED ROSA PNG-BAKGRUND --- */
 .content-card {
     position: absolute;
     top: 50%;
     left: 42%;
     transform: translate(-50%, -50%);
     width: 90%;
-    max-width: 580px;
-    height: 580px; /* Gör rutan kvadratisk */
+    max-width: 560px;
+    height: 560px;
     
-    background-color: #ffffff; /* Vit bakgrund under den genomskinliga PNG-bilden */
-    background-image: url('aboutbox.png'); /* Ändra till .jpg om din fil slutar på .jpg */
+    background-color: #ffffff; /* Vit bakgrund under bilden */
+    background-image: url('aboutbox.png'); /* SÄKERSTÄLL ATT BILDEN HETER EXACT OM DENNA I GITHUB */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -131,13 +130,14 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
+/* Döljer kortet */
 .content-card.hidden {
     opacity: 0;
     pointer-events: none;
     transform: translate(-50%, -45%);
 }
 
-/* Stängningsknapp (Svart/Rosa) */
+/* Stängningsknapp */
 .close-btn {
     position: absolute;
     top: 1rem;
@@ -152,7 +152,7 @@ body {
 }
 
 .close-btn:hover {
-    color: #ff00ff; /* Blir rosa när man håller muspekaren över */
+    color: #ff00ff;
 }
 
 /* --- GRID-LAYOUT (2x2 RUTOR) --- */
@@ -162,63 +162,61 @@ body {
     grid-template-rows: 1fr 1fr;
     width: 100%;
     height: 100%;
-    gap: 1.5rem; /* Marginal till de rosa linjerna */
+    gap: 1.5rem;
 }
 
 .grid-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem;
-    color: #000000; /* Svart text */
+    padding: 0.8rem;
+    color: #000000;
     overflow: hidden;
 }
 
-/* Textstilar */
 .grid-box h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 400;
     color: #000000;
     margin-bottom: 0.3rem;
 }
 
 .grid-box .subtitle {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #666666;
 }
 
 .grid-box .intro-text {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     line-height: 1.45;
     color: #222222;
 }
 
 .grid-box h3 {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #000000;
     margin-bottom: 0.5rem;
 }
 
-/* Listor i de nedre rutorna */
 .focus-list, .journey-list {
     list-style: none;
     padding: 0;
 }
 
 .focus-list li, .journey-list li {
-    font-size: 0.75rem;
+    font-size: 0.73rem;
     line-height: 1.5;
     color: #333333;
 }
 
 .focus-list li::before {
     content: "• ";
-    color: #ff00ff; /* Rosa punkt */
+    color: #ff00ff;
 }
 
 .journey-list {
@@ -231,6 +229,6 @@ body {
 
 .journey-list li::before {
     content: counter(journey-counter) ". ";
-    color: #ff00ff; /* Rosa numrering */
+    color: #ff00ff;
     font-weight: bold;
 }
