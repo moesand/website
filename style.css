@@ -4,18 +4,17 @@
     box-sizing: border-box;
 }
 
-/* Sätt muspekaren på hela sidan */
-html, body {
+/* Sätt den rosa blyertspennan på hela sidan */
+*, html, body, #draw-canvas {
+    cursor: url('https://cur.cursors-4u.net/user/use-1/use160.png'), 0 0, auto !important;
+}
+
+body {
     width: 100%;
     height: 100%;
     background-color: #ffffff;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #000000;
-    /* Muspekare (crosshair tills du lägger in 'peka.png') */
-    cursor: url('https://cur.cursors-4u.net/user/use-1/use160.ani'), url('https://cur.cursors-4u.net/user/use-1/use160.png'), crosshair !important;
-}
-
-body {
     padding: 3rem;
     display: flex;
     flex-direction: column;
@@ -128,9 +127,4 @@ body {
     width: 100vw;
     height: 100vh;
     z-index: 1;
-    cursor: url('peka.png'), crosshair;
-}
-/* Pink Polka Dotted Pencil muspekare */
-*, html, body, #draw-canvas {
-    cursor: url('https://cdn.cursors-4u.net/previews/pink-polka-dotted-pencil-c68b38ec-32.webp') 0 0, auto !important;
 }
