@@ -197,3 +197,48 @@ body {
 .who-box, .what-box {
     padding-top: 7.5rem; /* Öka detta nummer om du vill skjuta ner texten ännu mer */
 }
+/* --- CONTACT SPECIFIK STYLING --- */
+
+/* Här kopplar vi på den nya bilden */
+.contact-layout {
+    background-image: url('contact.png') !important;
+    background-size: contain;
+    /* Om du vill ha en annan storlek på just denna bild, ändra max-width här: */
+    max-width: 500px; 
+    aspect-ratio: 1 / 1; /* Eller det förhållande bilden har */
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding-top: 2rem; /* Justera beroende på var dina linjer är i bilden */
+}
+
+.contact-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: lowercase; /* Valfritt, för en stilren look */
+}
+
+.contact-content a {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.9rem;
+    border-bottom: 1px solid transparent;
+    transition: border 0.2s;
+}
+
+.contact-content a:hover {
+    border-bottom: 1px solid #ff00ff; /* Rosa linje vid hovring */
+}
+
+.social-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
