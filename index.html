@@ -45,121 +45,82 @@
 
     <div id="about-card" class="content-card hidden">
         <button class="close-btn" id="close-about">&times;</button>
-        
         <div class="grid-container">
-            <div class="grid-box who-box">
-                <p>
-                    I am Moe Sand, a non-binary designer located in Sweden. My focus is centered on understanding human behavior and societal structures.
-                </p>
-            </div>
-
-            <div class="grid-box what-box">
-                <p>
-                    I use design as a tool of constructive resistance and systematic change, questioning systems rooted in legacy thinking or limited knowledge.
-                </p>
-            </div>
-
-            <div class="grid-box journey-box">
-                <ol>
-                    <li>Visual Art & Form</li>
-                    <li>Film Production</li>
-                    <li>Comic Art</li>
-                    <li>BFA in Design</li>
-                </ol>
-            </div>
-
-            <div class="grid-box skills-box">
-                <ul>
-                    <li>Systemic Research</li>
-                    <li>Social Transformation</li>
-                    <li>Critical Practice</li>
-                    <li>Problem Solving</li>
-                </ul>
-            </div>
+            <div class="grid-box who-box"><p>I am Moe Sand, a non-binary designer located in Sweden. My focus is centered on understanding human behavior and societal structures.</p></div>
+            <div class="grid-box what-box"><p>I use design as a tool of constructive resistance and systematic change, questioning systems rooted in legacy thinking or limited knowledge.</p></div>
+            <div class="grid-box journey-box"><ol><li>Visual Art & Form</li><li>Film Production</li><li>Comic Art</li><li>BFA in Design</li></ol></div>
+            <div class="grid-box skills-box"><ul><li>Systemic Research</li><li>Social Transformation</li><li>Critical Practice</li><li>Problem Solving</li></ul></div>
         </div>
     </div>
 
-    <div id="projects-card" class="projects-modal hidden">
+    <div id="projects-card" class="content-card hidden projects-layout">
         <button class="close-btn" id="close-projects">&times;</button>
         
-        <div class="project-symbols-grid">
-            <button class="symbol-btn active" data-project="project1">
-                <img src="project1-icon.png" alt="Projekt 1 Symbol">
-                <span>Projekt 1</span>
-            </button>
-            <button class="symbol-btn" data-project="project2">
-                <img src="project2-icon.png" alt="Projekt 2 Symbol">
-                <span>Projekt 2</span>
-            </button>
-            <button class="symbol-btn" data-project="project3">
-                <img src="project3-icon.png" alt="Projekt 3 Symbol">
-                <span>Projekt 3</span>
-            </button>
-            <button class="symbol-btn" data-project="project4">
-                <img src="project4-icon.png" alt="Projekt 4 Symbol">
-                <span>Projekt 4</span>
-            </button>
+        <div id="projects-initial-view">
+            <h2 class="projects-title">Projects</h2>
+            <div class="symbol-grid-selection">
+                <button class="symbol-item" data-project="project1">
+                    <img src="project1-icon.png" alt="P1">
+                    <span>Projekt 1</span>
+                </button>
+                <button class="symbol-item" data-project="project2">
+                    <img src="project2-icon.png" alt="P2">
+                    <span>Projekt 2</span>
+                </button>
+                <button class="symbol-item" data-project="project3">
+                    <img src="project3-icon.png" alt="P3">
+                    <span>Projekt 3</span>
+                </button>
+                <button class="symbol-item" data-project="project4">
+                    <img src="project4-icon.png" alt="P4">
+                    <span>Projekt 4</span>
+                </button>
+            </div>
         </div>
 
-        <div class="project-details-container">
+        <div id="projects-detail-view" class="hidden">
+            <button id="back-to-symbols" class="back-btn">← Back to selection</button>
             
-            <article id="project1" class="project-view active">
-                <h2>Titel på Projekt 1</h2>
-                <p class="project-subtitle">Underrubrik / Kategori / År</p>
-                <div class="project-body">
-                    <p>Här skriver du beskrivningen för Projekt 1. Du kan lägga till flera paragrafer, bilder och annat innehåll här inne. Rutan scrollar smidigt om innehållet blir längre än fönstret.</p>
-                    <img src="project1-image.jpg" alt="Projekt 1 Bild" class="project-img">
-                    <p>Ytterligare detaljer, metodik, processer eller resultat för detta specifika projekt.</p>
-                </div>
-            </article>
+            <div class="project-scroll-area">
+                <article id="project1" class="project-content hidden">
+                    <h2>Titel Projekt 1</h2>
+                    <p class="subtitle">Kategori / År</p>
+                    <div class="body"><p>Beskrivning av projektet...</p><img src="p1.jpg" alt="" class="p-img"></div>
+                </article>
 
-            <article id="project2" class="project-view">
-                <h2>Titel på Projekt 2</h2>
-                <p class="project-subtitle">Underrubrik / Kategori / År</p>
-                <div class="project-body">
-                    <p>Här skriver du beskrivningen för Projekt 2. När du klickar på den andra symbolen visas denna information direkt.</p>
-                    <img src="project2-image.jpg" alt="Projekt 2 Bild" class="project-img">
-                </div>
-            </article>
+                <article id="project2" class="project-content hidden">
+                    <h2>Titel Projekt 2</h2>
+                    <p class="subtitle">Kategori / År</p>
+                    <div class="body"><p>Beskrivning av projektet...</p><img src="p2.jpg" alt="" class="p-img"></div>
+                </article>
 
-            <article id="project3" class="project-view">
-                <h2>Titel på Projekt 3</h2>
-                <p class="project-subtitle">Underrubrik / Kategori / År</p>
-                <div class="project-body">
-                    <p>Här skriver du beskrivningen för Projekt 3.</p>
-                    <img src="project3-image.jpg" alt="Projekt 3 Bild" class="project-img">
-                </div>
-            </article>
+                <article id="project3" class="project-content hidden">
+                    <h2>Titel Projekt 3</h2>
+                    <p class="subtitle">Kategori / År</p>
+                    <div class="body"><p>Beskrivning av projektet...</p><img src="p3.jpg" alt="" class="p-img"></div>
+                </article>
 
-            <article id="project4" class="project-view">
-                <h2>Titel på Projekt 4</h2>
-                <p class="project-subtitle">Underrubrik / Kategori / År</p>
-                <div class="project-body">
-                    <p>Här skriver du beskrivningen för Projekt 4.</p>
-                    <img src="project4-image.jpg" alt="Projekt 4 Bild" class="project-img">
-                </div>
-            </article>
-
+                <article id="project4" class="project-content hidden">
+                    <h2>Titel Projekt 4</h2>
+                    <p class="subtitle">Kategori / År</p>
+                    <div class="body"><p>Beskrivning av projektet...</p><img src="p4.jpg" alt="" class="p-img"></div>
+                </article>
+            </div>
         </div>
     </div>
 
     <div id="consult-card" class="content-card hidden consult-layout">
         <button class="close-btn" id="close-consult">&times;</button>
-        
         <div class="consult-content">
             <h2>Consulting</h2>
-            <p>
-                I am open for consulting roles focused on ideation, creative direction, and circular strategies.
-            </p>
+            <p>I am open for consulting roles focused on ideation, creative direction, and circular strategies.</p>
         </div>
     </div>
 
     <div id="contact-card" class="content-card hidden contact-layout">
         <button class="close-btn" id="close-contact">&times;</button>
-        
         <div class="contact-content">
             <p class="contact-email"><a href="mailto:moe7sand@gmail.com">moe7sand@gmail.com</a></p>
-            
             <div class="social-links">
                 <p><a href="https://instagram.com/kasskonst" target="_blank">Instagram</a></p>
                 <p><a href="https://linkedin.com/in/moe-sand-a73a02367" target="_blank">LinkedIn</a></p>
