@@ -107,7 +107,7 @@ body {
     color: #222;
 }
 
-/* --- ABOUT POPUP MED DIN PNG-BILD SOM BAKGRUND --- */
+/* --- ABOUT POPUP (HELT GENOMSKINLIG UTAN VIT BAKGRUND) --- */
 .content-card {
     position: absolute;
     top: 50%;
@@ -115,76 +115,78 @@ body {
     transform: translate(-50%, -50%);
     width: 90%;
     max-width: 580px;
-    height: 580px; /* Gör rutan kvadratisk så att din PNG passar perfekt */
+    height: 580px;
     
-    background-image: url('aboutbox.png'); /* Säkerställ att bilden på GitHub heter exakt aboutbox.png */
+    /* Helt genomskinlig bakgrund */
+    background-color: transparent;
+    background-image: url('aboutbox.png'); /* Se till att filnamnet matchar på GitHub */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     border: none;
+    box-shadow: none; /* Ingen skugga runt rutan */
     
     padding: 2.2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     z-index: 100;
     transition: all 0.3s ease-in-out;
 }
 
-/* Döljer rutan */
+/* Döljer popupen */
 .content-card.hidden {
     opacity: 0;
     pointer-events: none;
     transform: translate(-50%, -45%);
 }
 
-/* Stängningsknapp (Rosa för att matcha dina linjer) */
+/* Stängningsknapp (Ligger precis ovanför det rosa rutnätet) */
 .close-btn {
     position: absolute;
-    top: 1rem;
-    right: 1.2rem;
+    top: 0.5rem;
+    right: 0.8rem;
     background: none;
     border: none;
-    font-size: 1.8rem;
+    font-size: 2rem;
     line-height: 1;
-    color: #ff00ff;
+    color: #ff00ff; /* Matchar den rosa färgen på linjerna */
     cursor: pointer;
     z-index: 10;
 }
 
 .close-btn:hover {
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
-/* --- 2x2 RUTNÄT SOM MATCHAR RUTERNA I PNG-BILDEN --- */
+/* --- 2x2 RUTNÄT FÖR TEXTEN --- */
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     width: 100%;
     height: 100%;
-    gap: 1.5rem; /* Marginaler till de rosa linjerna i mitten */
+    gap: 1.5rem;
 }
 
 .grid-box {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 2.8rem 1rem 1rem 1rem; /* Ger utrymme i toppen för dina handritade rubriker i bilden */
+    padding: 2.8rem 1rem 1rem 1rem; /* Lämnar plats för dina handritade rubriker i PNG-bilden */
     color: #000000;
     overflow: hidden;
 }
 
-/* Textstilar */
+/* Textstil inuti rutorna */
 .grid-box p {
     font-size: 0.8rem;
     line-height: 1.45;
-    color: #111111;
+    color: #000000;
 }
 
 .grid-box ul, .grid-box ol {
     padding-left: 1.2rem;
     font-size: 0.78rem;
     line-height: 1.5;
-    color: #111111;
+    color: #000000;
 }
 
 .grid-box li {
