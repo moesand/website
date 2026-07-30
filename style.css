@@ -4,9 +4,9 @@
     box-sizing: border-box;
 }
 
-/* Sätt den söta pennan som muspekare överallt */
-html, body, a {
-    cursor: url('oth490.cur') 0 0, auto !important;
+/* Sätt den nya PNG-muspekaren på ALLA element */
+*, html, body, a, button, img {
+    cursor: url('pencil.png') 0 0, auto !important;
 }
 
 body {
