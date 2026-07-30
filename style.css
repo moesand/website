@@ -192,3 +192,7 @@ body {
 .grid-box li {
     margin-bottom: 0.2rem;
 }
+/* Flyttar BARA ner texten i de två övre rutorna */
+.who-box, .what-box {
+    padding-top: 4.8rem; /* Öka detta nummer om du vill skjuta ner texten ännu mer */
+}
