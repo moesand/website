@@ -111,11 +111,12 @@ body {
 .content-card {
     position: absolute;
     top: 50%;
-    left: 42%;
+    left: 35%;
     transform: translate(-50%, -50%);
     width: 90%;
     max-width: 580px;
-    height: 580px;
+    aspect-ratio: 1 / 1; 
+    height: auto;
     
     /* Helt genomskinlig bakgrund */
     background-color: transparent;
