@@ -17,10 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = document.getElementById(item.cardId);
             if (card) card.classList.add('hidden');
         });
-        // Återställ projects om det stängs
-        projectsCard.classList.remove('expanded');
-        projectsInitial.classList.remove('hidden');
-        projectsDetail.classList.add('hidden');
+        
+        // Återställ Projects till ursprungsläget när man stänger
+        if (projectsCard) {
+            projectsCard.classList.remove('expanded');
+        }
+        if (projectsInitial) {
+            projectsInitial.classList.remove('hidden');
+        }
+        if (projectsDetail) {
+            projectsDetail.classList.add('hidden');
+        }
     }
 
     menuItems.forEach(item => {
@@ -28,22 +35,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.getElementById(item.cardId);
         const closeBtn = document.getElementById(item.closeId);
 
-        if (btn) {
+        if (btn && card) {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
+
+                const isHidden = card.classList.contains('hidden');
                 closeAllCards();
-                card.classList.remove('hidden');
+
+                if (isHidden) {
+                    card.classList.remove('hidden');
+                }
             });
         }
 
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => closeAllCards());
+        if (closeBtn && card) {
+            closeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                closeAllCards();
+            });
         }
     });
 
     // --- PROJEKT LOGIK ---
-
-    // Klicka på symbol för att "dyka in"
     const symbolBtns = document.querySelectorAll('.symbol-item');
     symbolBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -52,30 +66,40 @@ document.addEventListener("DOMContentLoaded", () => {
             // 1. Expandera rutan
             projectsCard.classList.add('expanded');
             
-            // 2. Växla innehåll efter en kort delay (för snyggare animation)
+            // 2. Växla innehåll
             setTimeout(() => {
                 projectsInitial.classList.add('hidden');
                 projectsDetail.classList.remove('hidden');
                 
                 // Visa rätt projekt-text
                 document.querySelectorAll('.project-content').forEach(p => p.classList.add('hidden'));
-                document.getElementById(targetId).classList.remove('hidden');
+                const activeProject = document.getElementById(targetId);
+                if (activeProject) {
+                    activeProject.classList.remove('hidden');
+                }
                 
                 // Scrolla till toppen
-                document.querySelector('.project-scroll-area').scrollTop = 0;
-            }, 300);
+                const scrollArea = document.querySelector('.project-scroll-area');
+                if (scrollArea) {
+                    scrollArea.scrollTop = 0;
+                }
+            }, 250);
         });
     });
 
     // Back-knapp inuti fönstret
-    backBtn.addEventListener('click', () => {
-        projectsCard.classList.remove('expanded');
-        projectsDetail.classList.add('hidden');
-        projectsInitial.classList.remove('hidden');
-    });
+    if (backBtn) {
+        backBtn.addEventListener('click', () => {
+            projectsCard.classList.remove('expanded');
+            projectsDetail.classList.add('hidden');
+            projectsInitial.classList.remove('hidden');
+        });
+    }
 
     // ESC för att stänga allt
     window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeAllCards();
+        if (e.key === 'Escape') {
+            closeAllCards();
+        }
     });
 });
