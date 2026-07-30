@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // Alla menyval och deras kort/modaler
     const menuItems = [
         { btnId: 'menu-about',    cardId: 'about-card',    closeId: 'close-about' },
         { btnId: 'menu-projects', cardId: 'projects-card', closeId: 'close-projects' },
@@ -8,77 +7,75 @@ document.addEventListener("DOMContentLoaded", () => {
         { btnId: 'menu-contact',  cardId: 'contact-card',  closeId: 'close-contact' }
     ];
 
-    // Funktion för att dölja alla fönster
+    const projectsCard = document.getElementById('projects-card');
+    const projectsInitial = document.getElementById('projects-initial-view');
+    const projectsDetail = document.getElementById('projects-detail-view');
+    const backBtn = document.getElementById('back-to-symbols');
+
     function closeAllCards() {
         menuItems.forEach(item => {
             const card = document.getElementById(item.cardId);
-            if (card) {
-                card.classList.add('hidden');
-            }
+            if (card) card.classList.add('hidden');
         });
+        // Återställ projects om det stängs
+        projectsCard.classList.remove('expanded');
+        projectsInitial.classList.remove('hidden');
+        projectsDetail.classList.add('hidden');
     }
 
-    // Koppla ihop menyknappar och stängningsknappar
     menuItems.forEach(item => {
         const btn = document.getElementById(item.btnId);
         const card = document.getElementById(item.cardId);
         const closeBtn = document.getElementById(item.closeId);
 
-        if (btn && card) {
+        if (btn) {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                e.stopPropagation();
-
-                const isHidden = card.classList.contains('hidden');
                 closeAllCards();
-
-                if (isHidden) {
-                    card.classList.remove('hidden');
-                }
+                card.classList.remove('hidden');
             });
         }
 
-        if (closeBtn && card) {
-            closeBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                card.classList.add('hidden');
-            });
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => closeAllCards());
         }
     });
 
-    // --- PROJEKTVÄXLARE (PROJEKT-SYMBOLER) ---
-    const symbolBtns = document.querySelectorAll('.symbol-btn');
-    const projectViews = document.querySelectorAll('.project-view');
+    // --- PROJEKT LOGIK ---
 
+    // Klicka på symbol för att "dyka in"
+    const symbolBtns = document.querySelectorAll('.symbol-item');
     symbolBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            const targetProjectId = btn.getAttribute('data-project');
-
-            // 1. Markera klickad symbol som aktiv
-            symbolBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // 2. Visa motsvarande projekt-text
-            projectViews.forEach(view => {
-                if (view.id === targetProjectId) {
-                    view.classList.add('active');
-                } else {
-                    view.classList.remove('active');
-                }
-            });
-
-            // 3. Scrolla upp till toppen av projektrutan vid byte
-            const container = document.querySelector('.project-details-container');
-            if (container) {
-                container.scrollTop = 0;
-            }
+            const targetId = btn.getAttribute('data-project');
+            
+            // 1. Expandera rutan
+            projectsCard.classList.add('expanded');
+            
+            // 2. Växla innehåll efter en kort delay (för snyggare animation)
+            setTimeout(() => {
+                projectsInitial.classList.add('hidden');
+                projectsDetail.classList.remove('hidden');
+                
+                // Visa rätt projekt-text
+                document.querySelectorAll('.project-content').forEach(p => p.classList.add('hidden'));
+                document.getElementById(targetId).classList.remove('hidden');
+                
+                // Scrolla till toppen
+                document.querySelector('.project-scroll-area').scrollTop = 0;
+            }, 300);
         });
     });
 
-    // Stäng alla fönster med ESC-tangenten
+    // Back-knapp inuti fönstret
+    backBtn.addEventListener('click', () => {
+        projectsCard.classList.remove('expanded');
+        projectsDetail.classList.add('hidden');
+        projectsInitial.classList.remove('hidden');
+    });
+
+    // ESC för att stänga allt
     window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeAllCards();
-        }
+        if (e.key === 'Escape') closeAllCards();
     });
 });
