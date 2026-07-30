@@ -112,10 +112,10 @@ body {
 .content-card {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 38%;
     transform: translate(-50%, -50%);
     width: 90%;
-    max-width: 560px;
+    max-width: 420px;
     background-color: #fff0f5;
     border: 1px solid #000000;
     padding: 2.5rem;
