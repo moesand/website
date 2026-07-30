@@ -130,3 +130,7 @@ body {
     z-index: 1;
     cursor: url('peka.png'), crosshair;
 }
+/* Pink Polka Dotted Pencil muspekare */
+*, html, body, #draw-canvas {
+    cursor: url('https://cdn.cursors-4u.net/previews/pink-polka-dotted-pencil-c68b38ec-32.webp') 0 0, auto !important;
+}
