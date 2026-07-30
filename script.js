@@ -11,14 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeContact = document.getElementById('close-contact');
     const closeConsult = document.getElementById('close-consult');
 
-    // Hjälpfunktion för att dölja alla kort samtidigt
+    // Hjälpfunktion för att dölja alla kort
     function closeAll() {
         if (aboutCard) aboutCard.classList.add('hidden');
         if (contactCard) contactCard.classList.add('hidden');
         if (consultCard) consultCard.classList.add('hidden');
     }
 
-    // ABOUT
+    // ABOUT CLICK
     if (menuAbout && aboutCard) {
         menuAbout.addEventListener('click', (e) => {
             e.preventDefault();
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // CONTACT
+    // CONTACT CLICK
     if (menuContact && contactCard) {
         menuContact.addEventListener('click', (e) => {
             e.preventDefault();
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // CONSULT
+    // CONSULT CLICK
     if (menuConsult && consultCard) {
         menuConsult.addEventListener('click', (e) => {
             e.preventDefault();
