@@ -136,7 +136,7 @@ body {
     display: none !important;
 }
 
-/* Stängningsknapp (Ligger precis ovanför det rosa rutnätet) */
+/* Stängningsknapp */
 .close-btn {
     position: absolute;
     top: 0.5rem;
@@ -173,12 +173,10 @@ body {
     overflow: hidden;
 }
 
-/* Flyttar BARA ner texten i de två övre rutorna */
 .who-box, .what-box {
     padding-top: 7.5rem; 
 }
 
-/* Textstil inuti rutorna */
 .grid-box p {
     font-size: 0.8rem;
     line-height: 1.45;
@@ -196,11 +194,48 @@ body {
     margin-bottom: 0.2rem;
 }
 
+/* --- CONSULT SPECIFIK STYLING --- */
+.consult-layout {
+    background-image: url('consult.png') !important;
+    background-size: contain;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+}
+
+.consult-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 2rem;
+}
+
+.consult-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    font-weight: normal;
+}
+
+.consult-content p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #000;
+    max-width: 80%;
+}
+
+#consult-card .close-btn {
+    top: 1rem;
+    right: 1rem;
+}
+
 /* --- CONTACT SPECIFIK STYLING --- */
 .contact-layout {
     background-image: url('contact.png') !important;
     background-size: contain;
-    max-width: 700px; 
+    max-width: 500px; 
     aspect-ratio: 1 / 1;
 }
 
@@ -211,7 +246,7 @@ body {
     align-items: center;
     height: 100%;
     text-align: center;
-    padding-top: 7rem; 
+    padding-top: 2rem; 
 }
 
 .contact-email a {
@@ -237,4 +272,9 @@ body {
     margin-top: 1.5rem;
     display: flex;
     gap: 1.5rem;
+}
+
+#contact-card .close-btn {
+    top: 1rem;
+    right: 1rem;
 }
