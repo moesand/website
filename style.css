@@ -297,19 +297,38 @@ body {
 
 /* --- PROJECTS (EXPANDERAT LÄGE) --- */
 .projects-layout.expanded {
-    /* Tvingar tillbaka det stora fönstret till ursprungsläget högst upp */
     top: 6.5rem !important; 
     left: 240px;
     right: 0;
     bottom: 0;
     width: auto;
     max-width: none;
-    height: auto;
+    height: calc(100vh - 6.5rem) !important; /* Låser fönstrets höjd till skärmkanten */
     aspect-ratio: auto;
     transform: none;
     padding: 3rem;
     border: none !important;
     background-color: #ffffff;
+    
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Förhindrar att hela sidan scrollar */
+}
+
+/* Detaljvyn inuti */
+#projects-detail-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* DETTA ÄR YTAN SOM SKA SCROLLA */
+.project-scroll-area {
+    flex: 1;
+    overflow-y: auto !important; /* Tvingar fram vertikal scrollbar */
+    padding-right: 1.5rem;
+    max-height: 100%;
 }
 
 .projects-title {
