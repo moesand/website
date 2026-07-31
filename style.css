@@ -235,3 +235,41 @@ body {
 .project-images-column .p-img:nth-child(even) {
     align-self: flex-end;
 }
+/* --- LIGHTBOX (HELFORSMATS BILDVISNING) --- */
+/* Gör alla vanliga bilder klickbara med en pointer-muspekare */
+.image-wrapper img, 
+.project-images-column .p-img {
+    cursor: pointer !important;
+}
+
+.lightbox-modal {
+    position: fixed;
+    z-index: 9999; /* Lägger den längst fram över allt annat */
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9); /* Mörk halvgenomskinlig bakgrund */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
