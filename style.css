@@ -295,7 +295,7 @@ body {
 
 /* EXPANDERAT LÄGE FÖR PROJECTS */
 .projects-layout.expanded {
-    top: 6.5rem;
+    top: 3.0rem;
     left: 240px;
     right: 0;
     bottom: 0;
