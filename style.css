@@ -284,18 +284,21 @@ body {
     right: 1rem;
 }
 
-/* --- PROJECTS (INGA RAMAR) --- */
+/* --- PROJECTS (GRUNDLÄGE / LILLA FÖNSTRET) --- */
 .projects-layout {
     background-image: none !important;
     background-color: #ffffff;
     border: none !important;
     box-shadow: none !important;
-    top: 58% !important;
+    
+    /* Flyttar BARA ner det lilla fönstret */
+    top: 58% !important; 
 }
 
-/* EXPANDERAT LÄGE FÖR PROJECTS */
+/* --- PROJECTS (EXPANDERAT LÄGE) --- */
 .projects-layout.expanded {
-    top: 3.0rem;
+    /* Tvingar tillbaka det stora fönstret till ursprungsläget högst upp */
+    top: 6.5rem !important; 
     left: 240px;
     right: 0;
     bottom: 0;
