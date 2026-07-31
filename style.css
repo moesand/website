@@ -1,13 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* Muspekare */
-*, html, body, a, button, img {
-    cursor: url('pencil.png') 0 0, auto !important;
-}
+*, html, body, a, button, img { cursor: url('pencil.png') 0 0, auto !important; }
 
 body {
     background-color: #ffffff;
@@ -22,97 +16,23 @@ body {
     position: relative;
 }
 
-/* Header */
-.site-header {
-    z-index: 1100;
-}
+.site-header { z-index: 1100; }
+.site-header .logo { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 3rem; }
 
-.site-header .logo {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 3rem;
-}
+.content-container { display: flex; justify-content: space-between; align-items: center; width: 100%; flex: 1; padding: 1rem 0; }
 
-/* Huvudlayout */
-.content-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    flex: 1;
-    padding: 1rem 0;
-}
+.left-section { width: 200px; display: flex; align-items: center; z-index: 1050; }
+.side-menu ul { list-style: none; }
+.side-menu li { position: relative; padding-left: 20px; margin-bottom: 0.8rem; }
+.side-menu li::before { content: ""; position: absolute; left: 0; top: 50%; width: 12px; height: 1px; background-color: #000; }
+.side-menu a { text-decoration: none; color: #000; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; }
 
-/* Meny (Vertikalt centrerad) */
-.left-section {
-    width: 200px;
-    display: flex;
-    align-items: center;
-    z-index: 1050;
-}
+.right-section { max-width: 520px; width: 100%; display: flex; flex-direction: column; gap: 1.2rem; }
+.image-wrapper img { width: 100%; max-height: 42vh; display: block; object-fit: cover; }
+.bio-text h2 { font-size: 1.2rem; font-weight: normal; margin-bottom: 0.5rem; }
+.bio-text p { font-size: 0.88rem; line-height: 1.5; color: #222; }
 
-.side-menu ul {
-    list-style: none;
-}
-
-.side-menu li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 0.8rem;
-}
-
-.side-menu li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 12px;
-    height: 1px;
-    background-color: #000;
-}
-
-.side-menu a {
-    text-decoration: none;
-    color: #000;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.side-menu a:hover {
-    opacity: 0.6;
-}
-
-/* Höger sektion (Startsida) */
-.right-section {
-    max-width: 520px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-
-.image-wrapper img {
-    width: 100%;
-    max-height: 42vh;
-    display: block;
-    object-fit: cover;
-}
-
-.bio-text h2 {
-    font-size: 1.2rem;
-    font-weight: normal;
-    margin-bottom: 0.5rem;
-}
-
-.bio-text p {
-    font-size: 0.88rem;
-    line-height: 1.5;
-    color: #222;
-}
-
-/* --- POPUP KORT (EXAKT ORIGINAL) --- */
+/* --- POPUP KORT (STANDARD) --- */
 .content-card {
     position: absolute;
     top: 50%;
@@ -133,169 +53,41 @@ body {
     
     padding: 2.2rem;
     z-index: 1000;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s ease-in-out;
 }
 
-/* Döljer popupen helt när .hidden är aktiv */
-.content-card.hidden, .hidden {
-    display: none !important;
-}
+.content-card.hidden, .hidden { display: none !important; }
 
-/* Stängningsknapp */
-.close-btn {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.8rem;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    line-height: 1;
-    color: #ff00ff; 
-    cursor: pointer;
-    z-index: 10;
-}
+.close-btn { position: absolute; top: 0.5rem; right: 0.8rem; background: none; border: none; font-size: 2rem; color: #ff00ff; z-index: 10; }
 
-.close-btn:hover {
-    opacity: 0.5;
-}
+/* ABOUT */
+.grid-container { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; width: 100%; height: 100%; gap: 1.5rem; }
+.grid-box { display: flex; flex-direction: column; justify-content: flex-start; padding: 3.5rem 1rem 1rem 1rem; color: #000; overflow: hidden; }
+.who-box, .what-box { padding-top: 7.5rem; }
+.grid-box p { font-size: 0.8rem; line-height: 1.45; }
+.grid-box ul, .grid-box ol { padding-left: 1.2rem; font-size: 0.78rem; line-height: 1.5; }
 
-/* --- ABOUT: 2x2 RUTNÄT FÖR TEXTEN (EXAKT ORIGINAL) --- */
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    width: 100%;
-    height: 100%;
-    gap: 1.5rem;
-}
+/* CONSULT & CONTACT */
+.consult-layout { background-image: url('consult.png') !important; background-size: contain; max-width: 500px; aspect-ratio: 1 / 1; }
+.consult-content { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center; padding: 2rem; }
+.consult-content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.8rem; font-weight: normal; }
+.consult-content p { font-size: 0.88rem; line-height: 1.5; max-width: 80%; }
 
-.grid-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 3.5rem 1rem 1rem 1rem;
-    color: #000000;
-    overflow: hidden;
-}
+.contact-layout { background-image: url('contact.png') !important; background-size: contain; max-width: 500px; aspect-ratio: 1 / 1; }
+.contact-content { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center; padding-top: 4rem; }
+.contact-email a { font-size: 1.1rem; font-weight: 500; color: #000; text-decoration: none; }
+.social-links { margin-top: 1.5rem; display: flex; gap: 1.5rem; }
 
-.who-box, .what-box {
-    padding-top: 7.5rem; 
-}
-
-.grid-box p {
-    font-size: 0.8rem;
-    line-height: 1.45;
-    color: #000000;
-}
-
-.grid-box ul, .grid-box ol {
-    padding-left: 1.2rem;
-    font-size: 0.78rem;
-    line-height: 1.5;
-    color: #000000;
-}
-
-.grid-box li {
-    margin-bottom: 0.2rem;
-}
-
-/* --- CONSULT SPECIFIK STYLING (EXAKT ORIGINAL) --- */
-.consult-layout {
-    background-image: url('consult.png') !important;
-    background-size: contain;
-    max-width: 500px;
-    aspect-ratio: 1 / 1;
-}
-
-.consult-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-    padding: 2rem;
-}
-
-.consult-content h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-    font-weight: normal;
-}
-
-.consult-content p {
-    font-size: 0.88rem;
-    line-height: 1.5;
-    color: #000;
-    max-width: 80%;
-}
-
-#consult-card .close-btn {
-    top: 1rem;
-    right: 1rem;
-}
-
-/* --- CONTACT SPECIFIK STYLING (EXAKT ORIGINAL) --- */
-.contact-layout {
-    background-image: url('contact.png') !important;
-    background-size: contain;
-    max-width: 500px; 
-    aspect-ratio: 1 / 1;
-}
-
-.contact-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-    padding-top: 4rem; 
-}
-
-.contact-email a {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #000;
-    text-decoration: none;
-}
-
-.contact-content a {
-    text-decoration: none;
-    color: #000;
-    font-size: 0.9rem;
-    border-bottom: 1px solid transparent;
-    transition: border 0.2s;
-}
-
-.contact-content a:hover {
-    border-bottom: 1px solid #ff00ff; 
-}
-
-.social-links {
-    margin-top: 1.5rem;
-    display: flex;
-    gap: 1.5rem;
-}
-
-#contact-card .close-btn {
-    top: 1rem;
-    right: 1rem;
-}
-
-/* --- PROJECTS (GRUNDLÄGE / LILLA FÖNSTRET) --- */
+/* --- PROJECTS (GRUNDLÄGE) --- */
 .projects-layout {
     background-image: none !important;
     background-color: #ffffff;
     border: none !important;
     box-shadow: none !important;
-    
-    /* Flyttar BARA ner det lilla fönstret */
     top: 58% !important; 
 }
 
-/* --- PROJECTS (EXPANDERAT LÄGE) --- */
+/* PROJECTS (EXPANDERAT LÄGE FÖR DETALJVY) */
 .projects-layout.expanded {
     top: 6.5rem !important; 
     left: 240px;
@@ -303,19 +95,25 @@ body {
     bottom: 0;
     width: auto;
     max-width: none;
-    height: calc(100vh - 6.5rem) !important; /* Låser fönstrets höjd till skärmkanten */
+    height: calc(100vh - 6.5rem) !important;
     aspect-ratio: auto;
     transform: none;
-    padding: 3rem;
+    padding: 2.5rem 3rem;
     border: none !important;
     background-color: #ffffff;
-    
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Förhindrar att hela sidan scrollar */
+    overflow: hidden;
 }
 
-/* Detaljvyn inuti */
+.projects-title { font-family: 'Playfair Display', serif; font-weight: normal; margin-bottom: 2rem; text-align: center; }
+.symbol-grid-selection { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2rem; height: 80%; }
+.symbol-item { background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0.6; transition: opacity 0.3s; }
+.symbol-item:hover { opacity: 1; }
+.symbol-item img { width: 70px; height: 70px; object-fit: contain; }
+.symbol-item span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* --- NY LAYOUT ENLIGT SKISS --- */
 #projects-detail-view {
     height: 100%;
     display: flex;
@@ -323,92 +121,117 @@ body {
     overflow: hidden;
 }
 
-/* DETTA ÄR YTAN SOM SKA SCROLLA */
-.project-scroll-area {
-    flex: 1;
-    overflow-y: auto !important; /* Tvingar fram vertikal scrollbar */
-    padding-right: 1.5rem;
-    max-height: 100%;
-}
-
-.projects-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: normal;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.symbol-grid-selection {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 2rem;
-    height: 80%;
-}
-
-.symbol-item {
-    background: none;
-    border: none;
+/* TOPPRAD PÅ SKISSEN */
+.project-top-bar {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    opacity: 0.6;
-    transition: opacity 0.3s;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 2rem;
 }
 
-.symbol-item:hover {
-    opacity: 1;
-}
-
-.symbol-item img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-}
-
-.symbol-item span {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
-
-/* Projektdetaljer */
 .back-btn {
     background: none;
     border: none;
     font-size: 0.85rem;
     text-transform: uppercase;
-    margin-bottom: 2rem;
     color: #ff00ff;
 }
 
-.project-scroll-area {
-    height: calc(100% - 100px);
-    overflow-y: auto;
-    padding-right: 1.5rem;
+.symbols-nav-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
 }
 
-.project-content h2 {
+.symbol-nav-item {
+    background: none;
+    border: none;
+    opacity: 0.4;
+    transition: all 0.2s;
+}
+
+.symbol-nav-item:hover, .symbol-nav-item.active {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.symbol-nav-item img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+/* DUBBELSPALT BEHÅLLARE */
+.project-split-container {
+    flex: 1;
+    overflow: hidden;
+}
+
+.project-content {
+    display: flex;
+    gap: 3rem;
+    height: 100%;
+}
+
+.project-content.hidden {
+    display: none !important;
+}
+
+/* VÄNSTER SPALT: TEXT */
+.project-text-column {
+    flex: 1;
+    max-width: 45%;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+.project-text-column h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
 }
 
-.project-content .subtitle {
+.project-text-column .subtitle {
     text-transform: uppercase;
     color: #666;
-    margin-bottom: 2rem;
     font-size: 0.8rem;
-}
-
-.project-content p {
-    line-height: 1.8;
-    font-size: 1rem;
+    letter-spacing: 0.05em;
     margin-bottom: 1.5rem;
 }
 
-.p-img {
-    width: 100%;
-    margin: 2rem 0;
+.project-text-column .body p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #222;
+}
+
+/* HÖGER SPALT: BILDER (EGEN-SCROLLBAR + VARANNAN VÄNSTER/HÖGER MED LUFT) */
+.project-images-column {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto !important;
+    padding-right: 1.5rem;
+    padding-bottom: 4rem;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 4rem; /* Luft och tomrum mellan bilderna */
+}
+
+.project-images-column .p-img {
+    width: 75%; /* Bilderna tar 75% av utrymmet för att kunna förskjutas */
+    display: block;
+    object-fit: cover;
+}
+
+/* Udda nummer på bilder (1, 3, 5...) hålls till vänster */
+.project-images-column .p-img:nth-child(odd) {
+    align-self: flex-start;
+}
+
+/* Jämna nummer på bilder (2, 4, 6...) hålls till höger */
+.project-images-column .p-img:nth-child(even) {
+    align-self: flex-end;
 }
