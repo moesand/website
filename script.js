@@ -96,4 +96,31 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeAllCards();
     });
+    // --- LIGHTBOX FÖR BILDER (KLICKA FÖR HELSKÄRM) ---
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    // Lyssna på klick över hela dokumentet
+    document.addEventListener('click', (e) => {
+        // Kontrollera om elementet man klickade på är en bild på startsidan eller i projekten
+        if (e.target.matches('.image-wrapper img, .project-images-column .p-img')) {
+            lightboxImg.src = e.target.src;
+            lightbox.classList.remove('hidden');
+        }
+    });
+
+    // Stäng lightbox om man klickar på den svarta bakgrunden eller X-knappen
+    if (lightbox) {
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.add('hidden');
+        });
+    }
+
+    // Bygg ut ESC-knappen så att den även stänger bildvisningen
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox) {
+            lightbox.classList.add('hidden');
+        }
+    });
 });
