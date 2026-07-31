@@ -44,17 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- VÄXLA PROJEKT ---
     function showProject(targetId) {
-        // Expandera kortet om det inte redan är expanderat
         projectsCard.classList.add('expanded');
         projectsInitial.classList.add('hidden');
         projectsDetail.classList.remove('hidden');
 
-        // Visa rätt innehåll
         document.querySelectorAll('.project-content').forEach(p => p.classList.add('hidden'));
         const activeProject = document.getElementById(targetId);
         if (activeProject) activeProject.classList.remove('hidden');
 
-        // Markera rätt symbol i topp-raden
         document.querySelectorAll('.symbol-nav-item').forEach(navBtn => {
             if (navBtn.getAttribute('data-project') === targetId) {
                 navBtn.classList.add('active');
@@ -63,12 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Nollställ scroll för bilderna
         const imgCol = activeProject ? activeProject.querySelector('.project-images-column') : null;
         if (imgCol) imgCol.scrollTop = 0;
     }
 
-    // Klick från 2x2 symbolerna i första vyn
     document.querySelectorAll('.symbol-item').forEach(btn => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('data-project');
@@ -76,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Klick från symbol-raden längst upp i projektdetaljvyn
     document.querySelectorAll('.symbol-nav-item').forEach(btn => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('data-project');
@@ -84,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Back-knappen tar dig tillbaka till de 4 stora symbolerna
     if (backBtn) {
         backBtn.addEventListener('click', () => {
             projectsCard.classList.remove('expanded');
@@ -96,28 +89,24 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeAllCards();
     });
+
     // --- LIGHTBOX FÖR BILDER (KLICKA FÖR HELSKÄRM) ---
     const lightbox = document.getElementById('image-lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxClose = document.querySelector('.lightbox-close');
 
-    // Lyssna på klick över hela dokumentet
     document.addEventListener('click', (e) => {
-        // Kontrollera om elementet man klickade på är en bild på startsidan eller i projekten
         if (e.target.matches('.image-wrapper img, .project-images-column .p-img')) {
             lightboxImg.src = e.target.src;
             lightbox.classList.remove('hidden');
         }
     });
 
-    // Stäng lightbox om man klickar på den svarta bakgrunden eller X-knappen
     if (lightbox) {
         lightbox.addEventListener('click', () => {
             lightbox.classList.add('hidden');
         });
     }
 
-    // Bygg ut ESC-knappen så att den även stänger bildvisningen
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && lightbox) {
             lightbox.classList.add('hidden');
