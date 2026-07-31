@@ -1,7 +1,18 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+/* Dölj stängda element */
+.hidden { 
+    display: none !important; 
+}
 
 /* Muspekare */
-*, html, body, a, button, img { cursor: url('pencil.png') 0 0, auto !important; }
+*, html, body, a, button, img { 
+    cursor: url('pencil.png') 0 0, auto !important; 
+}
 
 body {
     background-color: #ffffff;
@@ -16,21 +27,93 @@ body {
     position: relative;
 }
 
-.site-header { z-index: 1100; }
-.site-header .logo { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 3rem; }
+.site-header { 
+    z-index: 1100; 
+}
 
-.content-container { display: flex; justify-content: space-between; align-items: center; width: 100%; flex: 1; padding: 1rem 0; }
+.site-header .logo { 
+    font-family: 'Playfair Display', serif; 
+    font-style: italic; 
+    font-weight: 400; 
+    font-size: 3rem; 
+}
 
-.left-section { width: 200px; display: flex; align-items: center; z-index: 1050; }
-.side-menu ul { list-style: none; }
-.side-menu li { position: relative; padding-left: 20px; margin-bottom: 0.8rem; }
-.side-menu li::before { content: ""; position: absolute; left: 0; top: 50%; width: 12px; height: 1px; background-color: #000; }
-.side-menu a { text-decoration: none; color: #000; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.content-container { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    flex: 1; 
+    padding: 1rem 0; 
+}
 
-.right-section { max-width: 520px; width: 100%; display: flex; flex-direction: column; gap: 4.0rem; }
-.image-wrapper img { width: 100%; max-height: 42vh; display: block; object-fit: contain; }
-.bio-text h2 { font-size: 1.2rem; font-weight: normal; margin-bottom: 0.5rem; }
-.bio-text p { font-size: 0.88rem; line-height: 1.5; color: #222; }
+.left-section { 
+    width: 200px; 
+    display: flex; 
+    align-items: center; 
+    z-index: 1050; 
+}
+
+.side-menu ul { 
+    list-style: none; 
+}
+
+.side-menu li { 
+    position: relative; 
+    padding-left: 20px; 
+    margin-bottom: 0.8rem; 
+}
+
+.side-menu li::before { 
+    content: ""; 
+    position: absolute; 
+    left: 0; 
+    top: 50%; 
+    width: 12px; 
+    height: 1px; 
+    background-color: #000; 
+}
+
+.side-menu a { 
+    text-decoration: none; 
+    color: #000; 
+    font-size: 0.85rem; 
+    letter-spacing: 0.05em; 
+    text-transform: uppercase; 
+    transition: color 0.2s ease;
+}
+
+.side-menu a:hover {
+    color: #ff00ff;
+}
+
+/* --- STARTSIDA (HÖGERSEKTION) --- */
+.right-section { 
+    max-width: 520px; 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 4.0rem; 
+}
+
+.image-wrapper img { 
+    width: 100%; 
+    max-height: 42vh; 
+    display: block; 
+    object-fit: contain; 
+}
+
+.bio-text h2 { 
+    font-size: 1.2rem; 
+    font-weight: normal; 
+    margin-bottom: 0.5rem; 
+}
+
+.bio-text p { 
+    font-size: 0.88rem; 
+    line-height: 1.5; 
+    color: #222; 
+}
 
 /* --- POPUP KORT (STANDARD) --- */
 .content-card {
@@ -56,40 +139,230 @@ body {
     transition: all 0.4s ease-in-out;
 }
 
-.content-card.hidden, .hidden { display: none !important; }
-
-.close-btn { position: absolute; top: 0.5rem; right: 0.8rem; background: none; border: none; font-size: 2rem; color: #ff00ff; z-index: 10; }
-
-/* ABOUT */
-.grid-container { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; width: 100%; height: 100%; gap: 1.5rem; }
-.grid-box { display: flex; flex-direction: column; justify-content: flex-start; padding: 3.5rem 1rem 1rem 1rem; color: #000; overflow: hidden; }
-.who-box, .what-box { padding-top: 7.5rem; }
-.skills-box { padding-top: 1.5rem !important; }
-.grid-box p { font-size: 0.8rem; line-height: 1.45; }
-.grid-box ul, .grid-box ol { padding-left: 1.2rem; font-size: 0.78rem; line-height: 1.5; }
-
-/* CONSULT & CONTACT */
-.consult-layout { background-image: url('consult.png') !important; background-size: contain; max-width: 500px; aspect-ratio: 1 / 1; }
-.consult-content { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center; padding: 2rem; }
-.consult-content h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.8rem; font-weight: normal; }
-.consult-content p { font-size: 0.88rem; line-height: 1.5; max-width: 80%; }
-
-.contact-layout { background-image: url('contact.png') !important; background-size: contain; max-width: 500px; aspect-ratio: 1 / 1; }
-.contact-content { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center; padding-top: 4rem; }
-.contact-email a { font-size: 1.1rem; font-weight: 500; color: #000; text-decoration: none; }
-.social-links { margin-top: 1.5rem; display: flex; gap: 1.5rem; }
-
-/* --- PROJECTS (GRUNDLÄGE) --- */
-.projects-layout {
-    background-image: none !important;
-    background-color: #ffffff;
-    border: none !important;
-    box-shadow: none !important;
-    top: 58% !important; 
+.close-btn { 
+    position: absolute; 
+    top: 0.5rem; 
+    right: 0.8rem; 
+    background: none; 
+    border: none; 
+    font-size: 2rem; 
+    color: #ff00ff; 
+    z-index: 10; 
 }
 
-/* PROJECTS (EXPANDERAT LÄGE FÖR DETALJVY) */
+/* ABOUT */
+.grid-container { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    width: 100%; 
+    height: 100%; 
+    gap: 1.5rem; 
+}
+
+.grid-box { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    padding: 3.5rem 1rem 1rem 1rem; 
+    color: #000; 
+    overflow: hidden; 
+}
+
+.who-box, .what-box { 
+    padding-top: 7.5rem; 
+}
+
+.skills-box { 
+    padding-top: 1.5rem !important; 
+}
+
+.grid-box p { 
+    font-size: 0.8rem; 
+    line-height: 1.45; 
+}
+
+.grid-box ul, .grid-box ol { 
+    padding-left: 1.2rem; 
+    font-size: 0.78rem; 
+    line-height: 1.5; 
+}
+
+/* CONSULT & CONTACT */
+.consult-layout { 
+    background-image: url('consult.png') !important; 
+    background-size: contain; 
+    max-width: 500px; 
+    aspect-ratio: 1 / 1; 
+}
+
+.consult-content { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    text-align: center; 
+    padding: 2rem; 
+}
+
+.consult-content h2 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.4rem; 
+    margin-bottom: 0.8rem; 
+    font-weight: normal; 
+}
+
+.consult-content p { 
+    font-size: 0.88rem; 
+    line-height: 1.5; 
+    max-width: 80%; 
+}
+
+.contact-layout { 
+    background-image: url('contact.png') !important; 
+    background-size: contain; 
+    max-width: 500px; 
+    aspect-ratio: 1 / 1; 
+}
+
+.contact-content { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    text-align: center; 
+    padding-top: 4rem; 
+}
+
+.contact-email a,
+.social-links a { 
+    font-size: 1.1rem; 
+    font-weight: 500; 
+    color: #000; 
+    text-decoration: none; 
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+/* Rosa understrykning och textfärg vid hover på kontaktlänkar */
+.contact-email a:hover,
+.social-links a:hover { 
+    color: #ff00ff;
+    border-bottom: 1px solid #ff00ff;
+}
+
+.social-links { 
+    margin-top: 1.5rem; 
+    display: flex; 
+    gap: 1.5rem; 
+}
+
+/* --- PROJECTS (POPUP / INITIALT LÄGE) --- */
+.projects-layout {
+    background-image: url('aboutbox.png') !important;
+    background-size: 100% 100%;
+}
+
+/* PROJECTS (EXPANDERAT LÄGE NÄR PROJEKT KLICKAS) */
 .projects-layout.expanded {
+    background-image: none !important;
+    background-color: #ffffff !important;
     top: 6.5rem !important; 
     left: 240px;
-    right:
+    right: 0;
+    bottom: 0;
+    width: auto;
+    max-width: none;
+    height: calc(100vh - 6.5rem) !important;
+    aspect-ratio: auto;
+    transform: none;
+    padding: 2.5rem 3rem;
+    border: none !important;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.projects-title { 
+    font-family: 'Playfair Display', serif; 
+    font-weight: normal; 
+    margin-bottom: 2rem; 
+    text-align: center; 
+}
+
+.symbol-grid-selection { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 2rem; 
+    height: 80%; 
+}
+
+.symbol-item { 
+    background: none; 
+    border: none; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 0.5rem; 
+    opacity: 0.6; 
+    transition: opacity 0.3s; 
+}
+
+.symbol-item:hover { 
+    opacity: 1; 
+}
+
+.symbol-item img { 
+    width: 70px; 
+    height: 70px; 
+    object-fit: contain; 
+}
+
+.symbol-item span { 
+    font-size: 0.7rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.1em; 
+}
+
+/* --- DETALJVY PROJEKT --- */
+#projects-detail-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.project-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 2rem;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #ff00ff;
+}
+
+.symbols-nav-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.symbol-nav-item {
+    background: none;
+    border: none;
+    opacity: 0.4;
+    transition: all 0.2s;
+}
+
+.symbol-nav-item:hover, .symbol-nav-item.
