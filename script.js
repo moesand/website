@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // --- POPUP/KORT HANTERING ---
     const menuItems = [
         { btnId: 'menu-about',    cardId: 'about-card',    closeId: 'close-about' },
         { btnId: 'menu-projects', cardId: 'projects-card', closeId: 'close-projects' },
@@ -43,19 +42,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // --- VÄXLA ENKILDA PROJEKT ---
+    // --- VÄXLA PROJEKT ---
     function showProject(targetId) {
-        // Expandera projektfönstret
+        // Expandera kortet om det inte redan är expanderat
         projectsCard.classList.add('expanded');
         projectsInitial.classList.add('hidden');
         projectsDetail.classList.remove('hidden');
 
-        // Visa rätt projekt-innehåll
+        // Visa rätt innehåll
         document.querySelectorAll('.project-content').forEach(p => p.classList.add('hidden'));
         const activeProject = document.getElementById(targetId);
         if (activeProject) activeProject.classList.remove('hidden');
 
-        // Markera den valda symbolen i toppraden
+        // Markera rätt symbol i topp-raden
         document.querySelectorAll('.symbol-nav-item').forEach(navBtn => {
             if (navBtn.getAttribute('data-project') === targetId) {
                 navBtn.classList.add('active');
@@ -64,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Nollställ scroll för bildspalten när man byter projekt
+        // Nollställ scroll för bilderna
         const imgCol = activeProject ? activeProject.querySelector('.project-images-column') : null;
         if (imgCol) imgCol.scrollTop = 0;
     }
@@ -85,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Back-knapp för att gå tillbaka till symbolerna
+    // Back-knappen tar dig tillbaka till de 4 stora symbolerna
     if (backBtn) {
         backBtn.addEventListener('click', () => {
             projectsCard.classList.remove('expanded');
@@ -94,47 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Stäng kort med ESC-tangenten
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeAllCards();
     });
-
-
-    // --- FÖRSTORINGSGLAS FÖR STARTSIDANS BILD ---
-    const wrapper = document.getElementById('img-wrapper');
-    const img = document.getElementById('main-img');
-    const glass = document.getElementById('magnifier-glass');
-
-    if (wrapper && img && glass) {
-        const zoomLevel = 2; // Förstoringsgrad (2x zoom)
-
-        wrapper.addEventListener('mouseenter', () => {
-            glass.style.display = 'block';
-            glass.style.backgroundImage = `url('${img.src}')`;
-            glass.style.backgroundSize = `${img.width * zoomLevel}px ${img.height * zoomLevel}px`;
-        });
-
-        wrapper.addEventListener('mouseleave', () => {
-            glass.style.display = 'none';
-        });
-
-        wrapper.addEventListener('mousemove', (e) => {
-            const rect = img.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            // Centrera förstoringslinsen på muspekaren
-            const glassWidth = glass.offsetWidth / 2;
-            const glassHeight = glass.offsetHeight / 2;
-
-            glass.style.left = `${x - glassWidth}px`;
-            glass.style.top = `${y - glassHeight}px`;
-
-            // Justera bakgrundsbilden inuti linsen för zoom-effekt
-            const bgX = (x * zoomLevel) - glassWidth;
-            const bgY = (y * zoomLevel) - glassHeight;
-
-            glass.style.backgroundPosition = `-${bgX}px -${bgY}px`;
-        });
-    }
 });
