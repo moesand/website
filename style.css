@@ -27,7 +27,7 @@ body {
 .side-menu li::before { content: ""; position: absolute; left: 0; top: 50%; width: 12px; height: 1px; background-color: #000; }
 .side-menu a { text-decoration: none; color: #000; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; }
 
-.right-section { max-width: 520px; width: 100%; display: flex; flex-direction: column; gap: 3.0rem; }
+.right-section { max-width: 520px; width: 100%; display: flex; flex-direction: column; gap: 5.0rem; }
 .image-wrapper img { width: 100%; max-height: 42vh; display: block; object-fit: cover; }
 .bio-text h2 { font-size: 1.2rem; font-weight: normal; margin-bottom: 0.5rem; }
 .bio-text p { font-size: 0.88rem; line-height: 1.5; color: #222; }
