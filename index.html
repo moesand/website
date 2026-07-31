@@ -45,37 +45,11 @@
 
     <div id="about-card" class="content-card hidden">
         <button class="close-btn" id="close-about">&times;</button>
-        
         <div class="grid-container">
-            <div class="grid-box who-box">
-                <p>
-                    I am Moe Sand, a non-binary multidisciplinary designer located in Sweden. My focus is centered on understanding human behavior and societal structures.
-                </p>
-            </div>
-
-            <div class="grid-box what-box">
-                <p>
-                    I use design as a tool of constructive resistance and systematic change, questioning systems rooted in legacy thinking or limited knowledge.
-                </p>
-            </div>
-
-            <div class="grid-box journey-box">
-                <ol>
-                    <li>Visual Art & Form</li>
-                    <li>Film Production</li>
-                    <li>Comic Art</li>
-                    <li>BFA in Design</li>
-                </ol>
-            </div>
-
-            <div class="grid-box skills-box">
-                <ul>
-                    <li>Systemic Research</li>
-                    <li>Social Transformation</li>
-                    <li>Critical Practice</li>
-                    <li>Problem Solving</li>
-                </ul>
-            </div>
+            <div class="grid-box who-box"><p>I am Moe Sand, a non-binary designer located in Sweden. My focus is centered on understanding human behavior and societal structures.</p></div>
+            <div class="grid-box what-box"><p>I use design as a tool of constructive resistance and systematic change, questioning systems rooted in legacy thinking or limited knowledge.</p></div>
+            <div class="grid-box journey-box"><ol><li>Visual Art & Form</li><li>Film Production</li><li>Comic Art</li><li>BFA in Design</li></ol></div>
+            <div class="grid-box skills-box"><ul><li>Systemic Research</li><li>Social Transformation</li><li>Critical Practice</li><li>Problem Solving</li></ul></div>
         </div>
     </div>
 
@@ -87,83 +61,119 @@
             <div class="symbol-grid-selection">
                 <button class="symbol-item" data-project="project1">
                     <img src="project1-icon.png" alt="P1">
-                    <span>The gender tool</span>
+                    <span>Projekt 1</span>
                 </button>
                 <button class="symbol-item" data-project="project2">
                     <img src="project2-icon.png" alt="P2">
-                    <span>Imagine a changing room</span>
+                    <span>Projekt 2</span>
                 </button>
                 <button class="symbol-item" data-project="project3">
                     <img src="project3-icon.png" alt="P3">
-                    <span>Neighbor-to-Neighbor</span>
+                    <span>Projekt 3</span>
                 </button>
                 <button class="symbol-item" data-project="project4">
                     <img src="project4-icon.png" alt="P4">
-                    <span>The play shed</span>
+                    <span>Projekt 4</span>
                 </button>
             </div>
         </div>
 
         <div id="projects-detail-view" class="hidden">
-            <button id="back-to-symbols" class="back-btn">← Back to selection</button>
             
-            <div class="project-scroll-area">
+            <div class="project-top-bar">
+                <button id="back-to-symbols" class="back-btn">← Back</button>
+
+                <div class="symbols-nav-row">
+                    <button class="symbol-nav-item" data-project="project1">
+                        <img src="project1-icon.png" alt="P1">
+                    </button>
+                    <button class="symbol-nav-item" data-project="project2">
+                        <img src="project2-icon.png" alt="P2">
+                    </button>
+                    <button class="symbol-nav-item" data-project="project3">
+                        <img src="project3-icon.png" alt="P3">
+                    </button>
+                    <button class="symbol-nav-item" data-project="project4">
+                        <img src="project4-icon.png" alt="P4">
+                    </button>
+                </div>
+            </div>
+
+            <div class="project-split-container">
+                
                 <article id="project1" class="project-content hidden">
-                    <h2>Kroppson - The Gender Tool</h2>
-                    <p class="subtitle">Bachelor thesis / 2026</p>
-                    <div class="body">
-                        <p>Kroppson - The Gender Tool is a pedagogical design tool/solution developed to support teachings about gender for students in grades 4-6. Inspired by paper dolls, Kroppson visualizes biological, psychological, and social aspects of gender through movable layers and interchangeable parts. With sewn-in magnets, the material can be used on classroom whiteboards, encouraging playful and collaborative exploration of gender and human diversity, beyond narrow categories. Gender is a complex concept where our collective understanding of the word goes on to shape and affect legislations, healthcare, and social relations. In a time when gender is heavily debated, and gender non-conforming people risk exclusion, misunderstandings and even violence, this tool aims to create a more inclusive foundation of knowledge grounded in the Swedish national curriculum, lived experiences and research. </p>
-                        <img src="p1.jpg" alt="" class="p-img">
+                    <div class="project-text-column">
+                        <h2>Titel Projekt 1</h2>
+                        <p class="subtitle">Underrubrik / År</p>
+                        <div class="body">
+                            <p>Här skriver du din brödtext om Projekt 1. Texten ligger i sin egen spalt till vänster precis som på skissen.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-images-column">
+                        <img src="p1.jpg" alt="Projekt bild 1" class="p-img">
+                        <img src="p1-extra.jpg" alt="Projekt bild 2" class="p-img">
                     </div>
                 </article>
 
                 <article id="project2" class="project-content hidden">
-                    <h2>Titel Projekt 2</h2>
-                    <p class="subtitle">Kategori / År</p>
-                    <div class="body">
-                        <p>Beskrivning av projektet...</p>
-                        <img src="p2.jpg" alt="" class="p-img">
+                    <div class="project-text-column">
+                        <h2>Titel Projekt 2</h2>
+                        <p class="subtitle">Underrubrik / År</p>
+                        <div class="body">
+                            <p>Här är brödtexten för Projekt 2.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-images-column">
+                        <img src="p2.jpg" alt="Projekt bild 1" class="p-img">
                     </div>
                 </article>
 
                 <article id="project3" class="project-content hidden">
-                    <h2>Titel Projekt 3</h2>
-                    <p class="subtitle">Kategori / År</p>
-                    <div class="body">
-                        <p>Beskrivning av projektet...</p>
-                        <img src="p3.jpg" alt="" class="p-img">
+                    <div class="project-text-column">
+                        <h2>Titel Projekt 3</h2>
+                        <p class="subtitle">Underrubrik / År</p>
+                        <div class="body">
+                            <p>Här är brödtexten för Projekt 3.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-images-column">
+                        <img src="p3.jpg" alt="Projekt bild 1" class="p-img">
                     </div>
                 </article>
 
                 <article id="project4" class="project-content hidden">
-                    <h2>Titel Projekt 4</h2>
-                    <p class="subtitle">Kategori / År</p>
-                    <div class="body">
-                        <p>Beskrivning av projektet...</p>
-                        <img src="p4.jpg" alt="" class="p-img">
+                    <div class="project-text-column">
+                        <h2>Titel Projekt 4</h2>
+                        <p class="subtitle">Underrubrik / År</p>
+                        <div class="body">
+                            <p>Här är brödtexten för Projekt 4.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-images-column">
+                        <img src="p4.jpg" alt="Projekt bild 1" class="p-img">
                     </div>
                 </article>
+
             </div>
         </div>
     </div>
 
     <div id="consult-card" class="content-card hidden consult-layout">
         <button class="close-btn" id="close-consult">&times;</button>
-        
         <div class="consult-content">
             <h2>Consulting</h2>
-            <p>
-                I am open for consulting roles focused on ideation, creative direction, and circular strategies.
-            </p>
+            <p>I am open for consulting roles focused on ideation, creative direction, and circular strategies.</p>
         </div>
     </div>
 
     <div id="contact-card" class="content-card hidden contact-layout">
         <button class="close-btn" id="close-contact">&times;</button>
-        
         <div class="contact-content">
             <p class="contact-email"><a href="mailto:moe7sand@gmail.com">moe7sand@gmail.com</a></p>
-            
             <div class="social-links">
                 <p><a href="https://instagram.com/kasskonst" target="_blank">Instagram</a></p>
                 <p><a href="https://linkedin.com/in/moe-sand-a73a02367" target="_blank">LinkedIn</a></p>
