@@ -273,3 +273,7 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
+/* Ändra placeringen på texten/listan i skills-rutan */
+.skills-box {
+    padding-top: 1.5rem !important; /* Minska detta värde (t.ex. 1rem eller 0.5rem) för att flytta upp texten mer */
+}
