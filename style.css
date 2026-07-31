@@ -28,6 +28,7 @@ body {
 .side-menu a { text-decoration: none; color: #000; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; }
 
 .right-section { max-width: 520px; width: 100%; display: flex; flex-direction: column; gap: 4.0rem; }
+.margin-top: -2rem; /* Justera värdet (t.ex. -1rem, -2rem, -3rem) tills höjden känns bra */ }
 .image-wrapper img { width: 100%; display: block; object-fit: contain; }
 .bio-text h2 { font-size: 1.2rem; font-weight: normal; margin-bottom: 0.5rem; }
 .bio-text p { font-size: 0.88rem; line-height: 1.5; color: #222; }
