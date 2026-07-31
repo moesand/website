@@ -115,7 +115,7 @@ body {
     color: #222; 
 }
 
-/* --- POPUP KORT (STANDARD FÖR ABOUT) --- */
+/* --- POPUP KORT (STANDARD) --- */
 .content-card {
     position: absolute;
     top: 50%;
@@ -258,12 +258,15 @@ body {
     gap: 1.5rem; 
 }
 
-/* --- PROJECTS (GENOMSKINLIG - ENDAST SYMBOLER VISAS) --- */
+/* --- PROJECTS (GENOMSKINLIG POPUP PÅ MITTEN - BARA SYMBOLER) --- */
 .projects-layout {
     background-image: none !important;
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
+    top: 58% !important; 
+    left: 35% !important;
+    transform: translate(-50%, -50%) !important;
 }
 
 .projects-title { 
@@ -308,7 +311,7 @@ body {
     letter-spacing: 0.1em; 
 }
 
-/* --- PROJECTS (EXPANDERAT LÄGE NÄR ETT PROJEKT KLICKATS) --- */
+/* --- PROJECTS (EXPANDERAR NÄR ETT PROJEKT KLICKATS) --- */
 .content-card.projects-layout.expanded {
     background-image: none !important;
     background-color: #ffffff !important;
@@ -440,7 +443,7 @@ body {
     align-self: flex-end;
 }
 
-/* --- LIGHTBOX (HELFORSMATS BILDVISNING) --- */
+/* --- LIGHTBOX --- */
 .image-wrapper img, 
 .project-images-column .p-img {
     cursor: pointer !important;
