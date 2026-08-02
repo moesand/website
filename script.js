@@ -112,4 +112,23 @@ document.addEventListener("DOMContentLoaded", () => {
             lightbox.classList.add('hidden');
         }
     });
+
+    // --- AUTOMATISKT BILDSPEL PÅ STARTSIDAN ---
+    const heroImg = document.getElementById('hero-image');
+    if (heroImg) {
+        const images = [
+            'butter2.jpg',
+            'butter3.jpg',
+            'butter4.jpg',
+            'butter5.jpg'
+        ];
+        
+        let currentIndex = 0;
+        const intervalTime = 3000; // Byt bild var 3:e sekund
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            heroImg.src = images[currentIndex];
+        }, intervalTime);
+    }
 });
