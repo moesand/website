@@ -444,7 +444,6 @@ body {
 }
 
 /* --- LIGHTBOX --- */
-.image-wrapper img, 
 .project-images-column .p-img {
     cursor: pointer !important;
 }
