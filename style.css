@@ -487,3 +487,20 @@ body {
     object-fit: contain; 
     transition: opacity 0.5s ease-in-out; /* Gör bildbytet mjukare */
 }
+
+/* --- ANPASSNING FÖR VIDEO I PROJEKT --- */
+.project-images-column .p-video {
+    width: 75%;
+    display: block;
+    border: none;
+    outline: none;
+}
+
+/* Placerar videon varannan gång till vänster / höger precis som bilderna */
+.project-images-column .p-video:nth-child(odd) {
+    align-self: flex-start;
+}
+
+.project-images-column .p-video:nth-child(even) {
+    align-self: flex-end;
+}
