@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const lightboxImg = document.getElementById('lightbox-img');
 
     document.addEventListener('click', (e) => {
-        if (e.target.matches('.image-wrapper img, .project-images-column .p-img')) {
+        if (e.target.matches('.project-images-column .p-img')) {
             lightboxImg.src = e.target.src;
             lightbox.classList.remove('hidden');
         }
