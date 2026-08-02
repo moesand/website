@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const heroImg = document.getElementById('hero-image');
     if (heroImg) {
         const images = [
+            'desiredlink.jpg',
             'butter2.jpg',
             'butter3.jpg',
             'butter4.jpg',
