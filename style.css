@@ -311,8 +311,9 @@ body {
     letter-spacing: 0.1em; 
 }
 
-/* --- PROJECTS (EXPANDERAR NÄR ETT PROJEKT KLICKATS) --- */
+/* --- PROJECTS (EXPANDERAR DIREKT MED KLICK) --- */
 .content-card.projects-layout.expanded {
+    transition: none !important; /* Stänger av glidningen helt! */
     background-image: none !important;
     background-color: #ffffff !important;
     top: 6.5rem !important; 
