@@ -524,3 +524,57 @@ body {
     align-items: center;
     gap: 10px; /* Avstånd mellan varje enskild symbol */
 }
+/* ==========================================
+   MOBILANPASSNING (Skärmar upp till 768px)
+   ========================================== */
+@media (max-width: 768px) {
+
+    /* 1. Gör att tvåkolumns-layouterna blir en kolumn (staplas vertikalt) */
+    .content-container,
+    .project-split-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* 2. Låt alla huvudelement ta 100% av bredden */
+    .left-section, 
+    .right-section,
+    .project-text-column,
+    .project-images-column {
+        width: 100%;
+    }
+
+    /* 3. Se till att alla bilder och videor anpassar sig efter skärmbredden */
+    .project-images-column img,
+    .project-images-column .p-video,
+    .image-wrapper img {
+        width: 100% !important;
+        max-width: 100%;
+        height: auto;
+        align-self: center !important; /* Tar bort varannan-sida förskjutningen på mobil */
+    }
+
+    /* 4. Anpassa poppup-korten (About, Projects, Contact etc.) */
+    .content-card {
+        width: 95%; /* Gör att kortet tar nästan hela skärmen */
+        padding: 20px 15px;
+        max-height: 90vh; /* Gör kortet skrollbart om det blir för långt */
+        overflow-y: auto;
+    }
+
+    /* 5. Anpassa rutorna i About-kortet */
+    .grid-container {
+        grid-template-columns: 1fr; /* Gör om grid till 1 kolumn */
+    }
+
+    /* 6. Fixa toppmenyn i projektfönstret */
+    .project-top-bar {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .symbols-nav-row {
+        overflow-x: auto; /* Gör så att symbolerna går att skrolla i sidled om de inte får plats */
+        padding-bottom: 5px;
+    }
+}
