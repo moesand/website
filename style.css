@@ -504,3 +504,23 @@ body {
 .project-images-column .p-video:nth-child(even) {
     align-self: flex-end;
 }
+/* Topp-fältet i projektet */
+.project-top-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Grupperingen som håller både Back-knapp och symboler till vänster */
+.nav-left-group {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Avstånd mellan "← Back" och den första symbolen */
+}
+
+/* Symbol-raden */
+.symbols-nav-row {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Avstånd mellan varje enskild symbol */
+}
