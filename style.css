@@ -306,7 +306,10 @@ body {
 .symbol-item img { 
     width: 70px; 
     height: 70px; 
+    min-width: 70px;
+    min-height: 70px;
     object-fit: contain; 
+    display: block;
 }
 
 .symbol-item span { 
@@ -388,7 +391,10 @@ body {
 .symbol-nav-item img {
     width: 35px;
     height: 35px;
+    min-width: 35px;
+    min-height: 35px;
     object-fit: contain;
+    display: block;
 }
 
 .project-split-container {
@@ -442,6 +448,7 @@ body {
 
 .project-images-column .p-img {
     width: 75%;
+    min-height: 150px;
     display: block;
     object-fit: cover;
     cursor: pointer !important;
@@ -522,7 +529,7 @@ body {
         padding: 1.5rem;
     }
 
-    /* Popup-kort blir heltäckande skärmar */
+    /* Popup-kort blir heltäckande mobilskärmar */
     .content-card {
         position: fixed !important;
         top: 0 !important;
@@ -535,7 +542,6 @@ body {
         max-height: 100vh !important;
         transform: none !important;
         background-color: #ffffff !important;
-        background-image: none !important;
         z-index: 2000 !important;
         overflow-y: auto !important;
         padding: 60px 20px 30px 20px !important;
@@ -543,13 +549,51 @@ body {
         aspect-ratio: auto !important;
     }
 
-    /* Gör att stängstjärnan/krysset ligger synligt */
+    /* Behåll bakgrundsbilder för avsedda kortsidor */
+    #about-card {
+        background-image: url('aboutbox.png') !important;
+        background-size: 100% 100% !important;
+        background-repeat: no-repeat !important;
+    }
+
+    .consult-layout {
+        background-image: url('consult.png') !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+
+    .contact-layout {
+        background-image: url('contact.png') !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+
+    /* Gör att stängningsknappen ligger synligt på mobil */
     .close-btn {
         position: fixed;
         top: 15px;
         right: 20px;
         font-size: 2.2rem;
         z-index: 2001;
+    }
+
+    /* Ikoner i projektmenyn */
+    .symbol-item img {
+        width: 60px !important;
+        height: 60px !important;
+        min-width: 60px !important;
+        min-height: 60px !important;
+        display: block !important;
+    }
+
+    .symbol-nav-item img {
+        width: 35px !important;
+        height: 35px !important;
+        min-width: 35px !important;
+        min-height: 35px !important;
+        display: block !important;
     }
 
     /* Omstrukturerar kortens innehåll på mobil */
@@ -592,6 +636,7 @@ body {
     .project-images-column .p-video {
         width: 100% !important;
         align-self: center !important;
+        min-height: auto;
     }
 
     .project-top-bar {
