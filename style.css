@@ -590,7 +590,7 @@ body {
         padding-right: 0.5rem !important;
     }
 
-    /* TEXTSTYRNING */
+    /* TEXTSTYRNING ABOUT */
     .grid-box p {
         font-size: 0.55rem !important;
         line-height: 1.25 !important;
@@ -607,7 +607,7 @@ body {
     }
 
     /* PROJEKT-POPUP MOBIL (Val av symbol) */
-    .projects-layout:not(.hidden) {
+    .projects-layout:not(.expanded):not(.hidden) {
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
@@ -622,7 +622,7 @@ body {
         width: 100% !important;
     }
 
-    /* PROJEKT DETALJVY (EXPANDERAT LÄGE) - FULL SCROLL HÖGST UPP TILL BOTTEN */
+    /* PROJEKT DETALJVY (EXPANDERAT LÄGE) - BÖRJAR HÖGST UPP */
     .content-card.projects-layout.expanded {
         position: fixed !important;
         top: 0 !important;
@@ -634,36 +634,75 @@ body {
         aspect-ratio: auto !important;
         transform: none !important;
 
-        /* Extra utrymme i toppen (så att du kan se överst) och i botten (så sista bilden ryms) */
-        padding: 5rem 1.5rem 6rem 1.5rem !important; 
+        /* Tvingar layouten att starta från toppen */
+        display: block !important; 
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+
+        /* Padding i toppen ger plats åt stäng-knappen utan att knuffa ner innehållet */
+        padding: 3.5rem 1.2rem 5rem 1.2rem !important; 
         
         background-color: #ffffff !important;
         z-index: 3000 !important;
-        overflow-y: scroll !important; /* Tvingar fram scrollbar vid behov */
-        -webkit-overflow-scrolling: touch !important; /* Mjuk scroll på iPhone/Safari */
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
     }
 
-    /* Koppla ur alla höjdbegränsningar inuti så att kortet kan växa fritt i höjd */
     #projects-detail-view,
     .project-split-container,
-    .project-content,
-    .project-text-column,
-    .project-images-column {
+    .project-content {
         height: auto !important;
         min-height: auto !important;
         max-height: none !important;
         overflow: visible !important;
-        max-width: 100% !important;
         width: 100% !important;
-        padding-right: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
+    .project-content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+
+    /* --- FÖRBÄTTRAD OCH SNYGGAD TEXTLAYOUT --- */
+    .project-text-column {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .project-text-column h2 {
+        font-size: 1.6rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.3rem !important;
+    }
+
+    .project-text-column .subtitle {
+        font-size: 0.75rem !important;
+        margin-bottom: 1rem !important;
+        letter-spacing: 0.05em !important;
+    }
+
+    .project-text-column .body p {
+        font-size: 0.85rem !important;
+        line-height: 1.6 !important; /* Gör texten mer lättläst */
+        color: #333333 !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    /* BILDGALLERI MOBIL */
     .project-images-column {
         display: flex !important;
         flex-direction: column !important;
-        gap: 2rem !important;
-        margin-top: 2rem !important;
-        padding-bottom: 2rem !important;
+        gap: 1.5rem !important;
+        margin-top: 1.5rem !important;
+        padding: 0 0 3rem 0 !important;
+        width: 100% !important;
+        height: auto !important;
     }
 
     .project-images-column .p-img,
@@ -690,8 +729,8 @@ body {
 
     .close-btn {
         position: fixed;
-        top: 15px;
-        right: 20px;
+        top: 12px;
+        right: 18px;
         font-size: 2.2rem;
         z-index: 3001;
     }
@@ -715,10 +754,55 @@ body {
     .project-top-bar {
         flex-wrap: wrap;
         gap: 10px;
+        margin-bottom: 15px !important;
     }
 
     .symbols-nav-row {
         overflow-x: auto;
         padding-bottom: 5px;
+    }
+   /* --- Tvinga enskild kolumn med full bredd --- */
+    .project-split-container,
+    .project-content {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 1.5rem !important;
+    }
+
+    /* --- Textkolumnen tar nu hela skärmens bredd --- */
+    .project-text-column {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important; /* Förhindrar att flexbox klämmer ihop texten */
+        box-sizing: border-box !important;
+        padding-right: 0 !important;
+    }
+
+    /* --- Snyggare typografi och radavstånd --- */
+    .project-text-column p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+        color: #222222 !important;
+        margin-bottom: 1rem !important;
+        text-align: left !important;
+    }
+
+    /* --- Bildkolumnen under texten --- */
+    .project-images-column {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.2rem !important;
+        padding-bottom: 4rem !important; /* Ger luft längst ner så sista bilden ryms */
+    }
+
+    .project-images-column img,
+    .project-images-column .p-img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
     }
 }
