@@ -154,7 +154,7 @@ body {
     z-index: 10; 
 }
 
-/* ABOUT */
+/* ABOUT RUTNÄT (DATOR) */
 .grid-container { 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -509,7 +509,6 @@ body {
    ========================================== */
 @media (max-width: 768px) {
 
-    /* Huvudlayouten staplas vertikalt */
     .content-container {
         flex-direction: column;
         gap: 30px;
@@ -529,7 +528,6 @@ body {
         padding: 1.5rem;
     }
 
-    /* Popup-kort blir heltäckande mobilskärmar */
     .content-card {
         position: fixed !important;
         top: 0 !important;
@@ -544,16 +542,50 @@ body {
         background-color: #ffffff !important;
         z-index: 2000 !important;
         overflow-y: auto !important;
-        padding: 60px 20px 30px 20px !important;
+        padding: 40px 15px 20px 15px !important;
         border-radius: 0 !important;
         aspect-ratio: auto !important;
     }
 
-    /* Behåll bakgrundsbilder för avsedda kortsidor */
+    /* BEHÅLL RUTNÄTSBILDEN PÅ ABOUT OCH ANPASSA INNERSTORLEKEN */
     #about-card {
         background-image: url('aboutbox.png') !important;
         background-size: 100% 100% !important;
         background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+
+    .grid-container {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: 1fr 1fr !important;
+        width: 100% !important;
+        height: 100% !important;
+        gap: 0.8rem !important;
+    }
+
+    .grid-box {
+        padding: 1rem 0.5rem !important;
+    }
+
+    /* Justera text-positioner så de passar rutorna i bakgrundsbilden */
+    .who-box, .what-box {
+        padding-top: 4.5rem !important;
+    }
+
+    .who-box p, .what-box p, .grid-box p {
+        font-size: 0.72rem !important;
+        line-height: 1.35 !important;
+    }
+
+    .grid-box ul, .grid-box ol {
+        padding-left: 0.8rem !important;
+        font-size: 0.68rem !important;
+        line-height: 1.35 !important;
+    }
+
+    .skills-box {
+        padding-top: 0.5rem !important;
     }
 
     .consult-layout {
@@ -570,7 +602,6 @@ body {
         background-position: center !important;
     }
 
-    /* Gör att stängningsknappen ligger synligt på mobil */
     .close-btn {
         position: fixed;
         top: 15px;
@@ -579,7 +610,6 @@ body {
         z-index: 2001;
     }
 
-    /* Ikoner i projektmenyn */
     .symbol-item img {
         width: 60px !important;
         height: 60px !important;
@@ -594,22 +624,6 @@ body {
         min-width: 35px !important;
         min-height: 35px !important;
         display: block !important;
-    }
-
-    /* Omstrukturerar kortens innehåll på mobil */
-    .grid-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        height: auto;
-    }
-
-    .grid-box {
-        padding: 1rem 0 !important;
-    }
-
-    .who-box, .what-box {
-        padding-top: 1rem !important;
     }
 
     .project-split-container {
