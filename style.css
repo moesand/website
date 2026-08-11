@@ -528,7 +528,7 @@ body {
         padding: 1.5rem;
     }
 
-    /* --- Nya regler för kortet på mobil (centrerat & täckande bakgrund) --- */
+    /* --- Kort-regler på mobil --- */
     .content-card {
         position: fixed !important;
         top: 50% !important;
@@ -607,15 +607,15 @@ body {
         max-width: 95% !important;
     }
 
-    /* CENTRERING AV PROJEKT-POPUP ENDAST MOBIL */
-    .projects-layout {
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
+    /* PROJEKT-POPUP MOBIL (Gäller endast när den INTE är döljd med .hidden) */
+    .projects-layout:not(.hidden) {
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
     }
 
     .symbol-grid-selection {
