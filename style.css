@@ -1,3 +1,6 @@
+/* ==========================================
+   NOLLSTÄLLNING & BASIC SETUP
+   ========================================== */
 * { 
     margin: 0; 
     padding: 0; 
@@ -101,6 +104,7 @@ body {
     max-height: 42vh; 
     display: block; 
     object-fit: contain; 
+    transition: opacity 0.5s ease-in-out;
 }
 
 .bio-text h2 { 
@@ -115,7 +119,7 @@ body {
     color: #222; 
 }
 
-/* --- POPUP KORT (STANDARD) --- */
+/* --- POPUP KORT (STANDARD DATOR) --- */
 .content-card {
     position: absolute;
     top: 50%;
@@ -258,7 +262,7 @@ body {
     gap: 1.5rem; 
 }
 
-/* --- PROJECTS (GENOMSKINLIG POPUP PÅ MITTEN - BARA SYMBOLER) --- */
+/* --- PROJECTS (POPUP PÅ MITTEN) --- */
 .projects-layout {
     background-image: none !important;
     background-color: transparent !important;
@@ -311,9 +315,9 @@ body {
     letter-spacing: 0.1em; 
 }
 
-/* --- PROJECTS (EXPANDERAR DIREKT MED KLICK) --- */
+/* --- PROJECTS (EXPANDERAT LÄGE DATOR) --- */
 .content-card.projects-layout.expanded {
-    transition: none !important; /* Stänger av glidningen helt! */
+    transition: none !important;
     background-image: none !important;
     background-color: #ffffff !important;
     top: 6.5rem !important; 
@@ -343,10 +347,15 @@ body {
 .project-top-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid #eeeeee;
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
+}
+
+.nav-left-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .back-btn {
@@ -359,7 +368,7 @@ body {
 
 .symbols-nav-row {
     display: flex;
-    gap: 1.5rem;
+    gap: 10px;
     align-items: center;
 }
 
@@ -370,7 +379,8 @@ body {
     transition: all 0.2s;
 }
 
-.symbol-nav-item:hover, .symbol-nav-item.active {
+.symbol-nav-item:hover, 
+.symbol-nav-item.active {
     opacity: 1;
     transform: scale(1.1);
 }
@@ -434,21 +444,27 @@ body {
     width: 75%;
     display: block;
     object-fit: cover;
-}
-
-.project-images-column .p-img:nth-child(odd) {
-    align-self: flex-start;
-}
-
-.project-images-column .p-img:nth-child(even) {
-    align-self: flex-end;
-}
-
-/* --- LIGHTBOX --- */
-.project-images-column .p-img {
     cursor: pointer !important;
 }
 
+.project-images-column .p-img:nth-child(odd),
+.project-images-column .p-video:nth-child(odd) {
+    align-self: flex-start;
+}
+
+.project-images-column .p-img:nth-child(even),
+.project-images-column .p-video:nth-child(even) {
+    align-self: flex-end;
+}
+
+.project-images-column .p-video {
+    width: 75%;
+    display: block;
+    border: none;
+    outline: none;
+}
+
+/* --- LIGHTBOX --- */
 .lightbox-modal {
     position: fixed;
     z-index: 9999;
@@ -480,146 +496,111 @@ body {
     cursor: pointer;
 }
 
-.image-wrapper img { 
-    width: 100%; 
-    max-height: 42vh; 
-    display: block; 
-    object-fit: contain; 
-    transition: opacity 0.5s ease-in-out; /* Gör bildbytet mjukare */
-}
 
-/* --- ANPASSNING FÖR VIDEO I PROJEKT --- */
-.project-images-column .p-video {
-    width: 75%;
-    display: block;
-    border: none;
-    outline: none;
-}
-
-/* Placerar videon varannan gång till vänster / höger precis som bilderna */
-.project-images-column .p-video:nth-child(odd) {
-    align-self: flex-start;
-}
-
-.project-images-column .p-video:nth-child(even) {
-    align-self: flex-end;
-}
-/* Topp-fältet i projektet */
-.project-top-bar {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-/* Grupperingen som håller både Back-knapp och symboler till vänster */
-.nav-left-group {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Avstånd mellan "← Back" och den första symbolen */
-}
-
-/* Symbol-raden */
-.symbols-nav-row {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Avstånd mellan varje enskild symbol */
-}
 /* ==========================================
    MOBILANPASSNING (Skärmar upp till 768px)
    ========================================== */
 @media (max-width: 768px) {
 
-    /* 1. Gör att tvåkolumns-layouterna blir en kolumn (staplas vertikalt) */
-    .content-container,
-    .project-split-container {
+    /* Huvudlayouten staplas vertikalt */
+    .content-container {
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
+        align-items: flex-start;
     }
 
-    /* 2. Låt alla huvudelement ta 100% av bredden */
     .left-section, 
-    .right-section,
+    .right-section {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    body {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        padding: 1.5rem;
+    }
+
+    /* Popup-kort blir heltäckande skärmar */
+    .content-card {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+        transform: none !important;
+        background-color: #ffffff !important;
+        background-image: none !important;
+        z-index: 2000 !important;
+        overflow-y: auto !important;
+        padding: 60px 20px 30px 20px !important;
+        border-radius: 0 !important;
+        aspect-ratio: auto !important;
+    }
+
+    /* Gör att stängstjärnan/krysset ligger synligt */
+    .close-btn {
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        font-size: 2.2rem;
+        z-index: 2001;
+    }
+
+    /* Omstrukturerar kortens innehåll på mobil */
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        height: auto;
+    }
+
+    .grid-box {
+        padding: 1rem 0 !important;
+    }
+
+    .who-box, .what-box {
+        padding-top: 1rem !important;
+    }
+
+    .project-split-container {
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    .project-content {
+        flex-direction: column;
+        gap: 2rem;
+        height: auto;
+    }
+
     .project-text-column,
     .project-images-column {
-        width: 100%;
-    }
-
-    /* 3. Se till att alla bilder och videor anpassar sig efter skärmbredden */
-    .project-images-column img,
-    .project-images-column .p-video,
-    .image-wrapper img {
+        max-width: 100% !important;
         width: 100% !important;
-        max-width: 100%;
-        height: auto;
-        align-self: center !important; /* Tar bort varannan-sida förskjutningen på mobil */
+        overflow-y: visible !important;
+        padding-right: 0 !important;
     }
 
-    /* 4. Anpassa poppup-korten (About, Projects, Contact etc.) */
-    .content-card {
-        width: 95%; /* Gör att kortet tar nästan hela skärmen */
-        padding: 20px 15px;
-        max-height: 90vh; /* Gör kortet skrollbart om det blir för långt */
-        overflow-y: auto;
+    .project-images-column .p-img,
+    .project-images-column .p-video {
+        width: 100% !important;
+        align-self: center !important;
     }
 
-    /* 5. Anpassa rutorna i About-kortet */
-    .grid-container {
-        grid-template-columns: 1fr; /* Gör om grid till 1 kolumn */
-    }
-
-    /* 6. Fixa toppmenyn i projektfönstret */
     .project-top-bar {
         flex-wrap: wrap;
         gap: 10px;
     }
 
     .symbols-nav-row {
-        overflow-x: auto; /* Gör så att symbolerna går att skrolla i sidled om de inte får plats */
+        overflow-x: auto;
         padding-bottom: 5px;
-    }
-}
-@media (max-width: 768px) {
-
-    /* Gör att popup-korten täcker hela skärmen på mobil */
-    .content-card {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;             /* 100% av skärmbredden */
-        height: 100vh;            /* 100% av skärmhöjden */
-        max-height: 100vh;
-        background-color: #ffffff; /* Sätter en solid vit bakgrund så inget lyser igenom */
-        z-index: 999;             /* Lägger kortet längst fram över allt annat */
-        
-        /* Centrerar innehållet och gör det skrollbart om det blir för högt */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;   /* Centrerar vertikalt */
-        align-items: center;       /* Centrerar horisontellt */
-        padding: 40px 20px 20px 20px;
-        box-sizing: border-box;
-        overflow-y: auto;          /* Tillåter skroll om innehållet är längre än skärmen */
-        border: none;              /* Tar bort eventuella kanter/skuggor från datorvyn */
-        border-radius: 0;
-    }
-
-    /* Gör så att kryssknappen (stäng) hamnar lättillgängligt uppe i hörnet */
-    .content-card .close-btn {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        font-size: 2rem;
-        z-index: 1000;
-    }
-
-    /* Säkerställer att innehållet inuti kortet tar upp bra med plats */
-    .grid-container,
-    .consult-content,
-    .contact-content,
-    #projects-initial-view,
-    #projects-detail-view {
-        width: 100%;
-        max-width: 500px; /* Förhindrar att textrader blir alltför breda */
-        margin: 0 auto;
     }
 }
