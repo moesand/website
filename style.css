@@ -503,7 +503,6 @@ body {
     cursor: pointer;
 }
 
-
 /* ==========================================
    MOBILANPASSNING (Skärmar upp till 768px)
    ========================================== */
@@ -607,7 +606,7 @@ body {
         max-width: 95% !important;
     }
 
-    /* PROJEKT-POPUP MOBIL (Gäller endast när den INTE är döljd med .hidden) */
+    /* PROJEKT-POPUP MOBIL (Val av symbol) */
     .projects-layout:not(.hidden) {
         display: flex !important;
         flex-direction: column !important;
@@ -621,6 +620,66 @@ body {
     .symbol-grid-selection {
         height: auto !important;
         width: 100% !important;
+    }
+
+    /* PROJEKT DETALJVY (EXPANDERAT LÄGE) - HELSKÄRM MED MED FULL SCROLL */
+    .content-card.projects-layout.expanded {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+        aspect-ratio: auto !important;
+        transform: none !important;
+        padding: 1.5rem !important;
+        padding-top: 4rem !important;
+        background-color: #ffffff !important;
+        z-index: 3000 !important;
+        overflow-y: auto !important; /* Aktiverar scroll för hela kortet */
+        -webkit-overflow-scrolling: touch; /* Gör scroll mjuk på iOS */
+    }
+
+    #projects-detail-view {
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .project-split-container {
+        display: flex;
+        flex-direction: column;
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    .project-content {
+        flex-direction: column;
+        gap: 2rem;
+        height: auto !important;
+    }
+
+    .project-text-column,
+    .project-images-column {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow-y: visible !important;
+        padding-right: 0 !important;
+    }
+
+    .project-images-column {
+        gap: 2rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .project-images-column .p-img,
+    .project-images-column .p-video {
+        width: 100% !important;
+        align-self: center !important;
+        min-height: auto;
     }
 
     /* --- Övriga mobilregler --- */
@@ -643,7 +702,7 @@ body {
         top: 15px;
         right: 20px;
         font-size: 2.2rem;
-        z-index: 2001;
+        z-index: 3001;
     }
 
     .symbol-item img {
@@ -662,33 +721,6 @@ body {
         display: block !important;
     }
 
-    .project-split-container {
-        display: flex;
-        flex-direction: column;
-        overflow: visible;
-    }
-
-    .project-content {
-        flex-direction: column;
-        gap: 2rem;
-        height: auto;
-    }
-
-    .project-text-column,
-    .project-images-column {
-        max-width: 100% !important;
-        width: 100% !important;
-        overflow-y: visible !important;
-        padding-right: 0 !important;
-    }
-
-    .project-images-column .p-img,
-    .project-images-column .p-video {
-        width: 100% !important;
-        align-self: center !important;
-        min-height: auto;
-    }
-
     .project-top-bar {
         flex-wrap: wrap;
         gap: 10px;
@@ -698,23 +730,4 @@ body {
         overflow-x: auto;
         padding-bottom: 5px;
     }
-/* PROJEKT DETALJVY (EXPANDERAT LÄGE) - HELSKÄRM PÅ MOBIL */
-    .content-card.projects-layout.expanded {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        max-width: 100vw !important;
-        max-height: 100vh !important;
-        aspect-ratio: auto !important;
-        transform: none !important;
-        padding: 1.5rem !important;
-        padding-top: 4rem !important; /* Ger utrymme för stäng-knappen högst upp */
-        background-color: #ffffff !important;
-        z-index: 3000 !important;
-        overflow-y: auto !important;
-    }
- }
+}
