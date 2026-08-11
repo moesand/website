@@ -447,10 +447,11 @@ body {
 }
 
 .project-images-column .p-img {
-    width: 75%;
-    min-height: 150px;
+    width: 80%;
+    height: auto;
+    max-height: none;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
     cursor: pointer !important;
 }
 
@@ -465,7 +466,8 @@ body {
 }
 
 .project-images-column .p-video {
-    width: 75%;
+    width: 80%;
+    height: auto;
     display: block;
     border: none;
     outline: none;
@@ -554,7 +556,7 @@ body {
         background-position: center !important;
     }
 
-    /* --- Uppdaterat rutnät för mobilen --- */
+    /* --- Rutnät för mobilen --- */
     .grid-container {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
@@ -623,7 +625,7 @@ body {
         width: 100% !important;
     }
 
-    /* PROJEKT DETALJVY (EXPANDERAT LÄGE) - BÖRJAR HÖGST UPP */
+    /* PROJEKT DETALJVY (EXPANDERAT LÄGE MOBIL) */
     .content-card.projects-layout.expanded {
         position: fixed !important;
         top: 0 !important;
@@ -654,7 +656,6 @@ body {
         padding: 0 !important;
     }
 
-    /* Tvinga enskild kolumn med full bredd */
     .project-split-container {
         display: flex !important;
         flex-direction: column !important;
@@ -664,7 +665,6 @@ body {
         overflow: visible !important;
     }
 
-    /* Styrning av visat/dolt projekt */
     .project-content {
         display: flex !important;
         flex-direction: column !important;
@@ -678,7 +678,6 @@ body {
         display: none !important;
     }
 
-    /* Textkolumnen tar nu hela skärmens bredd */
     .project-text-column {
         width: 100% !important;
         max-width: 100% !important;
@@ -710,7 +709,6 @@ body {
         text-align: left !important;
     }
 
-    /* Bildkolumnen placeras snyggt under texten */
     .project-images-column {
         width: 100% !important;
         max-width: 100% !important;
@@ -731,7 +729,6 @@ body {
         align-self: center !important;
     }
 
-    /* --- Övriga mobilregler --- */
     .consult-layout {
         background-image: url('consult.png') !important;
         background-size: contain !important;
