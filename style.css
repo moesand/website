@@ -661,9 +661,15 @@ body {
     }
 
     .project-content {
-        display: flex !important;
+        display: flex;
         flex-direction: column !important;
         gap: 1.5rem !important;
+        width: 100% !important;
+    }
+
+    .project-content.hidden {
+        display: none !important;
+    }
     }
 
     /* --- FÖRBÄTTRAD OCH SNYGGAD TEXTLAYOUT --- */
