@@ -60,8 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
+        // Nollställer scrollen så att projektet alltid öppnas högst upp
+        if (projectsCard) projectsCard.scrollTop = 0;
+
         const imgCol = activeProject ? activeProject.querySelector('.project-images-column') : null;
         if (imgCol) imgCol.scrollTop = 0;
+
+        window.scrollTo(0, 0);
     }
 
     document.querySelectorAll('.symbol-item').forEach(btn => {
