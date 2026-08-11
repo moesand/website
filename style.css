@@ -576,7 +576,7 @@ body {
 
     .skills-box {
         padding-top: 1.0rem !important;
-        padding-left: 1.5rem !important;
+        padding-left: 3.0rem !important;
     }
 
     .who-box p, .what-box p, .grid-box p {
@@ -588,6 +588,7 @@ body {
         padding-left: 0.8rem !important;
         font-size: 0.55rem !important;
         line-height: 1.2 !important;
+          max-width: 85% !important;
     }
 
     /* --- Övriga mobilregler behålls --- */
