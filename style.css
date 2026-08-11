@@ -467,6 +467,7 @@ body {
 
 .project-images-column .p-video {
     width: 80%;
+    aspect-ratio: 16 / 9;
     height: auto;
     display: block;
     border: none;
@@ -536,21 +537,28 @@ body {
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
-        width: 96vw !important;
-        max-width: 440px !important;
+        width: 92vw !important;
+        max-width: 420px !important;
         aspect-ratio: 1 / 1 !important; 
         height: auto !important;
         max-height: 85vh !important;
-        background-color: #ffffff !important;
         z-index: 2000 !important;
         padding: 0 !important;
         border-radius: 0 !important;
-        overflow: hidden !important;
+        overflow: visible !important;
     }
 
-    /* Täck hela bakgrunden helt med vitt sken när ett popup-kort öppnas */
-    .content-card:not(.hidden) {
-        box-shadow: 0 0 0 100vmax rgba(255, 255, 255, 0.98), 0 0 20px rgba(0, 0, 0, 0.15) !important;
+    /* Dimma bakgrunden mjukt och jämt */
+    .content-card:not(.hidden)::before {
+        content: "";
+        position: fixed;
+        top: -100vh;
+        left: -100vw;
+        width: 300vw;
+        height: 300vh;
+        background-color: rgba(255, 255, 255, 0.85);
+        z-index: -1;
+        pointer-events: none;
     }
 
     #about-card {
@@ -558,6 +566,19 @@ body {
         background-size: 100% 100% !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
+        background-color: transparent !important;
+    }
+
+    /* KRYSSKNAPP */
+    .close-btn {
+        position: absolute !important;
+        top: 2% !important;
+        right: 4% !important;
+        font-size: 2rem !important;
+        color: #ff00ff !important;
+        z-index: 3001 !important;
+        background: none !important;
+        border: none !important;
     }
 
     /* --- Rutnät för mobilen --- */
@@ -567,55 +588,56 @@ body {
         grid-template-rows: 1fr 1fr !important;
         width: 100% !important;
         height: 100% !important;
-        gap: 0.5rem !important;
-        padding: 0.5rem !important;
+        gap: 0 !important;
+        padding: 0 !important;
     }
 
     .grid-box {
         padding: 0 !important;
+        box-sizing: border-box !important;
     }
 
-    /* ÖVRE RUTOR (WHO & WHAT) */
+    /* 1. ÖVRE VÄNSTRA RUTA (WHO?) */
     .who-box {
-        padding-top: 6.2rem !important;
-        padding-left: 1.4rem !important;
-        padding-right: 0.8rem !important;
+        padding-top: 5.2rem !important;
+        padding-left: 2.2rem !important;
+        padding-right: 2.5rem !important;
     }
 
+    /* 2. ÖVRE HÖGRA RUTA (WHAT?) */
     .what-box {
-        padding-top: 6.2rem !important;
-        padding-left: 1.0rem !important;
-        padding-right: 1.2rem !important;
+        padding-top: 5.2rem !important;
+        padding-left: 2.2rem !important;
+        padding-right: 2.2rem !important;
     }
 
-    /* NEDRE VÄNSTRA RUTA (JOURNEY) */
+    /* 3. NEDRE VÄNSTRA RUTA (JOURNEY) */
     .journey-box {
-        padding-top: 4.5rem !important;
-        padding-left: 1.8rem !important;
-        padding-right: 0.5rem !important;
+        padding-top: 3.8rem !important;
+        padding-left: 2.2rem !important;
+        padding-right: 1.5rem !important;
     }
 
-    /* NEDRE HÖGRA RUTA (SKILLS) */
+    /* 4. NEDRE HÖGRA RUTA (SKILLS) */
     .skills-box {
-        padding-top: 3.5rem !important;
-        padding-left: 1.2rem !important;
-        padding-right: 0.5rem !important;
+        padding-top: 3.8rem !important;
+        padding-left: 2.2rem !important;
+        padding-right: 1.5rem !important;
     }
 
-    /* TEXTSTYRNING ABOUT */
+    /* TEXTSTORLEKAR OCH TEXTBREDD INUTI RUTORNA */
     .grid-box p {
-        font-size: 0.55rem !important;
+        font-size: 0.52rem !important;
         line-height: 1.25 !important;
-        max-width: 95% !important;
+        width: 100% !important;
     }
 
-    /* LISTSTYRNING (JOURNEY & SKILLS) */
     .grid-box ul, 
     .grid-box ol {
-        padding-left: 0.8rem !important;
-        font-size: 0.52rem !important;
+        padding-left: 1rem !important;
+        font-size: 0.50rem !important;
         line-height: 1.2 !important;
-        max-width: 95% !important;
+        width: 100% !important;
     }
 
     /* PROJEKT-POPUP MOBIL (Val av symbol) */
@@ -733,9 +755,11 @@ body {
     .project-images-column .p-img,
     .project-images-column .p-video {
         width: 100% !important;
+        aspect-ratio: 16 / 9 !important;
         height: auto !important;
         object-fit: contain !important;
         align-self: center !important;
+        border: none !important;
     }
 
     .consult-layout {
@@ -750,14 +774,6 @@ body {
         background-size: contain !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
-    }
-
-    .close-btn {
-        position: fixed;
-        top: 12px;
-        right: 18px;
-        font-size: 2.2rem;
-        z-index: 3001;
     }
 
     .symbol-item img {
