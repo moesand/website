@@ -571,10 +571,12 @@ body {
 
     .who-box, .what-box {
         padding-top: 5.0rem !important;
+        padding-left: 0.8rem !important;
     }
 
     .skills-box {
         padding-top: 1.0rem !important;
+        padding-left: 1.5rem !important;
     }
 
     .who-box p, .what-box p, .grid-box p {
