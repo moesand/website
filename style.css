@@ -262,7 +262,7 @@ body {
     gap: 1.5rem; 
 }
 
-/* --- PROJECTS (POPUP PÅ MITTEN) --- */
+/* --- PROJECTS (POPUP PÅ MITTEN DATOR) --- */
 .projects-layout {
     background-image: none !important;
     background-color: transparent !important;
@@ -339,7 +339,7 @@ body {
     overflow: hidden !important;
 }
 
-/* --- DETALJVY PROJEKT --- */
+/* --- DETALJVY PROJEKT (DATOR) --- */
 #projects-detail-view {
     height: 100%;
     display: flex;
@@ -503,6 +503,7 @@ body {
     cursor: pointer;
 }
 
+
 /* ==========================================
    MOBILANPASSNING (Skärmar upp till 768px)
    ========================================== */
@@ -634,12 +635,7 @@ body {
         aspect-ratio: auto !important;
         transform: none !important;
 
-        /* Tvingar layouten att starta från toppen */
         display: block !important; 
-        justify-content: flex-start !important;
-        align-items: flex-start !important;
-
-        /* Padding i toppen ger plats åt stäng-knappen utan att knuffa ner innehållet */
         padding: 3.5rem 1.2rem 5rem 1.2rem !important; 
         
         background-color: #ffffff !important;
@@ -648,9 +644,7 @@ body {
         -webkit-overflow-scrolling: touch !important;
     }
 
-    #projects-detail-view,
-    .project-split-container,
-    .project-content {
+    #projects-detail-view {
         height: auto !important;
         min-height: auto !important;
         max-height: none !important;
@@ -660,25 +654,39 @@ body {
         padding: 0 !important;
     }
 
-    .project-content {
-        display: flex;
+    /* Tvinga enskild kolumn med full bredd */
+    .project-split-container {
+        display: flex !important;
         flex-direction: column !important;
-        gap: 1.5rem !important;
         width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    /* Styrning av visat/dolt projekt */
+    .project-content {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 1.5rem !important;
+        height: auto !important;
     }
 
     .project-content.hidden {
         display: none !important;
     }
-    }
 
-    /* --- FÖRBÄTTRAD OCH SNYGGAD TEXTLAYOUT --- */
+    /* Textkolumnen tar nu hela skärmens bredd */
     .project-text-column {
-        max-width: 100% !important;
         width: 100% !important;
-        height: auto !important;
+        max-width: 100% !important;
+        flex: none !important;
+        box-sizing: border-box !important;
         padding: 0 !important;
         margin: 0 !important;
+        height: auto !important;
     }
 
     .project-text-column h2 {
@@ -693,28 +701,33 @@ body {
         letter-spacing: 0.05em !important;
     }
 
-    .project-text-column .body p {
-        font-size: 0.85rem !important;
-        line-height: 1.6 !important; /* Gör texten mer lättläst */
-        color: #333333 !important;
-        margin-bottom: 0.8rem !important;
+    .project-text-column .body p,
+    .project-text-column p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+        color: #222222 !important;
+        margin-bottom: 1rem !important;
+        text-align: left !important;
     }
 
-    /* BILDGALLERI MOBIL */
+    /* Bildkolumnen placeras snyggt under texten */
     .project-images-column {
+        width: 100% !important;
+        max-width: 100% !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 1.5rem !important;
-        margin-top: 1.5rem !important;
-        padding: 0 0 3rem 0 !important;
-        width: 100% !important;
+        gap: 1.2rem !important;
+        margin-top: 1rem !important;
+        padding: 0 0 4rem 0 !important;
         height: auto !important;
     }
 
+    .project-images-column img,
     .project-images-column .p-img,
     .project-images-column .p-video {
         width: 100% !important;
         height: auto !important;
+        object-fit: contain !important;
         align-self: center !important;
     }
 
@@ -766,49 +779,5 @@ body {
     .symbols-nav-row {
         overflow-x: auto;
         padding-bottom: 5px;
-    }
-   /* --- Tvinga enskild kolumn med full bredd --- */
-    .project-split-container,
-    .project-content {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        gap: 1.5rem !important;
-    }
-
-    /* --- Textkolumnen tar nu hela skärmens bredd --- */
-    .project-text-column {
-        width: 100% !important;
-        max-width: 100% !important;
-        flex: none !important; /* Förhindrar att flexbox klämmer ihop texten */
-        box-sizing: border-box !important;
-        padding-right: 0 !important;
-    }
-
-    /* --- Snyggare typografi och radavstånd --- */
-    .project-text-column p {
-        font-size: 0.9rem !important;
-        line-height: 1.5 !important;
-        color: #222222 !important;
-        margin-bottom: 1rem !important;
-        text-align: left !important;
-    }
-
-    /* --- Bildkolumnen under texten --- */
-    .project-images-column {
-        width: 100% !important;
-        max-width: 100% !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 1.2rem !important;
-        padding-bottom: 4rem !important; /* Ger luft längst ner så sista bilden ryms */
-    }
-
-    .project-images-column img,
-    .project-images-column .p-img {
-        width: 100% !important;
-        height: auto !important;
-        object-fit: contain !important;
     }
 }
