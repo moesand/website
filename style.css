@@ -607,6 +607,22 @@ body {
         max-width: 95% !important;
     }
 
+    /* CENTRERING AV PROJEKT-POPUP ENDAST MOBIL */
+    .projects-layout {
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .symbol-grid-selection {
+        height: auto !important;
+        width: 100% !important;
+    }
+
     /* --- Övriga mobilregler --- */
     .consult-layout {
         background-image: url('consult.png') !important;
