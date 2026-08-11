@@ -578,3 +578,48 @@ body {
         padding-bottom: 5px;
     }
 }
+@media (max-width: 768px) {
+
+    /* Gör att popup-korten täcker hela skärmen på mobil */
+    .content-card {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;             /* 100% av skärmbredden */
+        height: 100vh;            /* 100% av skärmhöjden */
+        max-height: 100vh;
+        background-color: #ffffff; /* Sätter en solid vit bakgrund så inget lyser igenom */
+        z-index: 999;             /* Lägger kortet längst fram över allt annat */
+        
+        /* Centrerar innehållet och gör det skrollbart om det blir för högt */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;   /* Centrerar vertikalt */
+        align-items: center;       /* Centrerar horisontellt */
+        padding: 40px 20px 20px 20px;
+        box-sizing: border-box;
+        overflow-y: auto;          /* Tillåter skroll om innehållet är längre än skärmen */
+        border: none;              /* Tar bort eventuella kanter/skuggor från datorvyn */
+        border-radius: 0;
+    }
+
+    /* Gör så att kryssknappen (stäng) hamnar lättillgängligt uppe i hörnet */
+    .content-card .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 2rem;
+        z-index: 1000;
+    }
+
+    /* Säkerställer att innehållet inuti kortet tar upp bra med plats */
+    .grid-container,
+    .consult-content,
+    .contact-content,
+    #projects-initial-view,
+    #projects-detail-view {
+        width: 100%;
+        max-width: 500px; /* Förhindrar att textrader blir alltför breda */
+        margin: 0 auto;
+    }
+}
