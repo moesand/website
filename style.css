@@ -539,11 +539,12 @@ body {
         aspect-ratio: 1 / 1 !important; 
         height: auto !important;
         max-height: 85vh !important;
-        background-color: transparent !important;
+        background-color: #ffffff !important;
         z-index: 2000 !important;
         padding: 0 !important;
         border-radius: 0 !important;
         overflow: hidden !important;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15) !important;
     }
 
     #about-card {
