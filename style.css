@@ -570,15 +570,15 @@ body {
     }
 
     .who-box, .what-box {
-        padding-top: 4.2rem !important;
+        padding-top: 5.0rem !important;
     }
 
     .skills-box {
-        padding-top: 1.2rem !important;
+        padding-top: 1.0rem !important;
     }
 
     .who-box p, .what-box p, .grid-box p {
-        font-size: 0.58rem !important;
+        font-size: 0.55rem !important;
         line-height: 1.2 !important;
     }
 
