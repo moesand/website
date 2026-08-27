@@ -549,17 +549,9 @@ body {
         background-color: #ffffff !important;
     }
 
-    /* Dimma bakgrunden mjukt och jämt */
+    /* Inaktivera täckande overlay så menyn/rubriken inte bleks ut */
     .content-card:not(.hidden)::before {
-        content: "";
-        position: fixed;
-        top: -100vh;
-        left: -100vw;
-        width: 300vw;
-        height: 300vh;
-        background-color: rgba(255, 255, 255, 0.85);
-        z-index: -1;
-        pointer-events: none;
+        display: none !important;
     }
 
     #about-card {
@@ -570,9 +562,9 @@ body {
         background-color: #ffffff !important;
     }
 
-        .content-card img,
-        .symbol-item img,
-        .symbol-nav-item img {
+    .content-card img,
+    .symbol-item img,
+    .symbol-nav-item img {
         opacity: 1 !important;
         mix-blend-mode: normal !important;
     }
@@ -657,6 +649,7 @@ body {
         top: 50% !important;
         left: 50% !important;
         transform: translate(-50%, -50%) !important;
+        background-color: #ffffff !important;
     }
 
     .symbol-grid-selection {
@@ -775,6 +768,7 @@ body {
         background-size: contain !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
+        background-color: #ffffff !important;
     }
 
     .contact-layout {
@@ -782,6 +776,7 @@ body {
         background-size: contain !important;
         background-repeat: no-repeat !important;
         background-position: center !important;
+        background-color: #ffffff !important;
     }
 
     .symbol-item img {
