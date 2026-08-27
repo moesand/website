@@ -546,6 +546,7 @@ body {
         padding: 0 !important;
         border-radius: 0 !important;
         overflow: visible !important;
+        background-color: #ffffff !important;
     }
 
     /* Dimma bakgrunden mjukt och jämt */
@@ -567,6 +568,13 @@ body {
         background-repeat: no-repeat !important;
         background-position: center !important;
         background-color: #ffffff !important;
+    }
+
+        .content-card img,
+        .symbol-item img,
+        .symbol-nav-item img {
+        opacity: 1 !important;
+        mix-blend-mode: normal !important;
     }
 
     /* KRYSSKNAPP */
