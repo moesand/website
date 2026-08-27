@@ -397,7 +397,6 @@ body {
     display: block;
 }
 
-/* Uppdaterad container: Tillåter gemensam scroll för hela projektvyn */
 .project-split-container {
     flex: 1;
     overflow-y: auto !important;
@@ -411,7 +410,6 @@ body {
     align-items: flex-start;
 }
 
-/* Vänsterspalt: Nu utan egen scrollbar så hela sidan scrollar ihop */
 .project-text-column {
     flex: 1;
     max-width: 45%;
@@ -434,13 +432,39 @@ body {
     margin-bottom: 1.5rem;
 }
 
+/* --- PROJECT BRIEF / SNABBFAKTA --- */
+.project-brief {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.8rem 0;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 1.2rem;
+}
+
+.project-brief li {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #333333;
+    margin-bottom: 0.8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-brief li strong {
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+}
+
 .project-text-column .body p {
     font-size: 0.88rem;
     line-height: 1.7;
     color: #222;
+    margin-bottom: 1rem;
 }
 
-/* För skisser och bilder som du vill lägga till i vänsterspalten */
 .project-text-column img {
     width: 100%;
     height: auto;
@@ -448,7 +472,6 @@ body {
     display: block;
 }
 
-/* Högerspalt: Nu utan egen scrollbar så den följer med hela sidans scroll */
 .project-images-column {
     flex: 1;
     height: auto !important;
@@ -520,7 +543,6 @@ body {
     cursor: pointer;
 }
 
-
 /* ==========================================
    MOBILANPASSNING (Skärmar upp till 768px)
    ========================================== */
@@ -545,7 +567,6 @@ body {
         padding: 1.5rem;
     }
 
-    /* --- Kort-regler på mobil --- */
     .content-card {
         position: fixed !important;
         top: 50% !important;
@@ -563,7 +584,6 @@ body {
         background-color: #ffffff !important;
     }
 
-    /* Inaktivera täckande overlay så menyn/rubriken inte bleks ut */
     .content-card:not(.hidden)::before {
         display: none !important;
     }
@@ -583,7 +603,6 @@ body {
         mix-blend-mode: normal !important;
     }
 
-    /* KRYSSKNAPP */
     .close-btn {
         position: absolute !important;
         top: 2% !important;
@@ -595,7 +614,6 @@ body {
         border: none !important;
     }
 
-    /* --- Rutnät för mobilen --- */
     .grid-container {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
@@ -611,35 +629,30 @@ body {
         box-sizing: border-box !important;
     }
 
-    /* 1. ÖVRE VÄNSTRA RUTA (WHO?) */
     .who-box {
         padding-top: 5.2rem !important;
         padding-left: 2.2rem !important;
         padding-right: 2.5rem !important;
     }
 
-    /* 2. ÖVRE HÖGRA RUTA (WHAT?) */
     .what-box {
         padding-top: 5.2rem !important;
         padding-left: 2.2rem !important;
         padding-right: 2.2rem !important;
     }
 
-    /* 3. NEDRE VÄNSTRA RUTA (JOURNEY) */
     .journey-box {
         padding-top: 3.8rem !important;
         padding-left: 2.2rem !important;
         padding-right: 1.5rem !important;
     }
 
-    /* 4. NEDRE HÖGRA RUTA (SKILLS) */
     .skills-box {
         padding-top: 3.8rem !important;
         padding-left: 2.2rem !important;
         padding-right: 1.5rem !important;
     }
 
-    /* TEXTSTORLEKAR OCH TEXTBREDD INUTI RUTORNA */
     .grid-box p {
         font-size: 0.52rem !important;
         line-height: 1.25 !important;
@@ -654,7 +667,6 @@ body {
         width: 100% !important;
     }
 
-    /* PROJEKT-POPUP MOBIL (Val av symbol) */
     .projects-layout:not(.expanded):not(.hidden) {
         display: flex !important;
         flex-direction: column !important;
@@ -671,7 +683,6 @@ body {
         width: 100% !important;
     }
 
-    /* PROJEKT DETALJVY (EXPANDERAT LÄGE MOBIL) */
     .content-card.projects-layout.expanded {
         position: fixed !important;
         top: 0 !important;
@@ -682,10 +693,8 @@ body {
         max-height: 100vh !important;
         aspect-ratio: auto !important;
         transform: none !important;
-
         display: block !important; 
         padding: 3.5rem 1.2rem 5rem 1.2rem !important; 
-        
         background-color: #ffffff !important;
         z-index: 3000 !important;
         overflow-y: auto !important;
@@ -744,6 +753,15 @@ body {
         font-size: 0.75rem !important;
         margin-bottom: 1rem !important;
         letter-spacing: 0.05em !important;
+    }
+
+    .project-brief li {
+        margin-bottom: 0.6rem;
+    }
+
+    .project-brief li strong {
+        display: block;
+        margin-bottom: 0.1rem;
     }
 
     .project-text-column .body p,
@@ -818,36 +836,5 @@ body {
     .symbols-nav-row {
         overflow-x: auto;
         padding-bottom: 5px;
-    }
-   /* Styling för Project Brief / Snabbfakta */
-.project-brief {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.8rem 0;
-    border-bottom: 1px solid #eeeeee;
-    padding-bottom: 1.2rem;
-}
-
-.project-brief li {
-    font-size: 0.82rem;
-    line-height: 1.6;
-    color: #444444;
-    margin-bottom: 0.4rem;
-}
-
-.project-brief li strong {
-    color: #000000;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    min-width: 130px; /* Gör så att kolon hamnar snyggt i linje */
-}
-
-/* Mobilanpassning för brief-listan */
-@media (max-width: 768px) {
-    .project-brief li strong {
-        display: block; /* Lägger rubriken på egen rad på mobil för bättre plats */
-        margin-bottom: 0.1rem;
     }
 }
