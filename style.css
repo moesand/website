@@ -397,22 +397,27 @@ body {
     display: block;
 }
 
+/* Uppdaterad container: Tillåter gemensam scroll för hela projektvyn */
 .project-split-container {
     flex: 1;
-    overflow: hidden;
+    overflow-y: auto !important;
+    padding-right: 1rem;
 }
 
 .project-content {
     display: flex;
     gap: 3rem;
-    height: 100%;
+    height: auto;
+    align-items: flex-start;
 }
 
+/* Vänsterspalt: Nu utan egen scrollbar så hela sidan scrollar ihop */
 .project-text-column {
     flex: 1;
     max-width: 45%;
-    overflow-y: auto;
-    padding-right: 1rem;
+    overflow-y: visible !important;
+    height: auto !important;
+    padding-bottom: 3rem;
 }
 
 .project-text-column h2 {
@@ -435,11 +440,20 @@ body {
     color: #222;
 }
 
+/* För skisser och bilder som du vill lägga till i vänsterspalten */
+.project-text-column img {
+    width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+    display: block;
+}
+
+/* Högerspalt: Nu utan egen scrollbar så den följer med hela sidans scroll */
 .project-images-column {
     flex: 1;
-    height: 100%;
-    overflow-y: auto !important;
-    padding-right: 1.5rem;
+    height: auto !important;
+    overflow-y: visible !important;
+    padding-right: 0.5rem;
     padding-bottom: 4rem;
     display: flex;
     flex-direction: column;
