@@ -17,7 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function closeAllCards() {
         menuItems.forEach(item => {
             const card = document.getElementById(item.cardId);
-            if (card) card.classList.add('hidden');
+            if (card) {
+                card.classList.add('hidden');
+                card.classList.remove('expanded');
+            }
         });
         
         if (projectsCard) projectsCard.classList.remove('expanded');
@@ -35,7 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 e.preventDefault();
                 const isHidden = card.classList.contains('hidden');
                 closeAllCards();
-                if (isHidden) card.classList.remove('hidden');
+                if (isHidden) {
+                    card.classList.remove('hidden');
+                    if (card.id === 'illustrations-card') {
+                        card.classList.add('expanded');
+                    }
+                }
             });
         }
 
@@ -44,11 +52,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // --- KLICK PÅ NAMN / LOGOTYP (STARTSIDA) ---
+    const logoLink = document.getElementById('site-logo');
+    if (logoLink) {
+        logoLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeAllCards();
+        });
+    }
+
     // --- VÄXLA PROJEKT ---
     function showProject(targetId) {
-        projectsCard.classList.add('expanded');
-        projectsInitial.classList.add('hidden');
-        projectsDetail.classList.remove('hidden');
+        if (projectsCard) projectsCard.classList.add('expanded');
+        if (projectsInitial) projectsInitial.classList.add('hidden');
+        if (projectsDetail) projectsDetail.classList.remove('hidden');
 
         document.querySelectorAll('.project-content').forEach(p => p.classList.add('hidden'));
         const activeProject = document.getElementById(targetId);
@@ -62,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Nollställer scrollen så att projektet alltid öppnas högst upp
+        // Nollställer scrollen så att projektet öppnas högst upp
         if (projectsCard) projectsCard.scrollTop = 0;
 
         const imgCol = activeProject ? activeProject.querySelector('.project-images-column') : null;
@@ -87,9 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (backBtn) {
         backBtn.addEventListener('click', () => {
-            projectsCard.classList.remove('expanded');
-            projectsDetail.classList.add('hidden');
-            projectsInitial.classList.remove('hidden');
+            if (projectsCard) projectsCard.classList.remove('expanded');
+            if (projectsDetail) projectsDetail.classList.add('hidden');
+            if (projectsInitial) projectsInitial.classList.remove('hidden');
         });
     }
 
@@ -101,11 +118,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById('image-lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
 
-    // Fångar både projektbilder och illustrationer via klassen .p-img
     document.addEventListener('click', (e) => {
-        if (e.target.matches('.p-img')) {
-            lightboxImg.src = e.target.src;
-            lightbox.classList.remove('hidden');
+        if (e.target.matches('.p-img, .ill-img')) {
+            if (lightboxImg && lightbox) {
+                lightboxImg.src = e.target.src;
+                lightbox.classList.remove('hidden');
+            }
         }
     });
 
