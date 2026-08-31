@@ -30,6 +30,9 @@ body {
     position: relative;
 }
 
+/* ==========================================
+   HEADER & LOGO
+   ========================================== */
 .site-header { 
     z-index: 1100; 
 }
@@ -41,6 +44,14 @@ body {
     font-size: 3rem; 
 }
 
+.site-header .logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================
+   LAYOUT (SKRIVBORD)
+   ========================================== */
 .content-container { 
     display: flex; 
     justify-content: space-between; 
@@ -119,7 +130,9 @@ body {
     color: #222; 
 }
 
-/* --- POPUP KORT (STANDARD DATOR) --- */
+/* ==========================================
+   POPUP KORT (STANDARD DATOR)
+   ========================================== */
 .content-card {
     position: absolute;
     top: 50%;
@@ -154,7 +167,7 @@ body {
     z-index: 10; 
 }
 
-/* ABOUT RUTNÄT (DATOR) */
+/* --- ABOUT RUTNÄT --- */
 .grid-container { 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -192,7 +205,7 @@ body {
     line-height: 1.5; 
 }
 
-/* CONSULT & CONTACT */
+/* --- CONSULT & CONTACT --- */
 .consult-layout { 
     background-image: url('consult.png') !important; 
     background-size: contain; 
@@ -262,7 +275,9 @@ body {
     gap: 1.5rem; 
 }
 
-/* --- PROJECTS (POPUP PÅ MITTEN DATOR) --- */
+/* ==========================================
+   PROJECTS SECTION
+   ========================================== */
 .projects-layout {
     background-image: none !important;
     background-color: transparent !important;
@@ -318,7 +333,7 @@ body {
     letter-spacing: 0.1em; 
 }
 
-/* --- PROJECTS (EXPANDERAT LÄGE DATOR) --- */
+/* Expanderat läge (Dator) */
 .content-card.projects-layout.expanded {
     transition: none !important;
     background-image: none !important;
@@ -339,7 +354,7 @@ body {
     overflow: hidden !important;
 }
 
-/* --- DETALJVY PROJEKT (DATOR) --- */
+/* Detaljvy Projekt */
 #projects-detail-view {
     height: 100%;
     display: flex;
@@ -432,7 +447,6 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* --- PROJECT BRIEF / SNABBFAKTA --- */
 .project-brief {
     list-style: none;
     padding: 0;
@@ -458,7 +472,7 @@ body {
     margin-bottom: 0.2rem;
 }
 
-.project-text-column .body p {
+.project-text-column body p {
     font-size: 0.88rem;
     line-height: 1.7;
     color: #222;
@@ -511,7 +525,82 @@ body {
     outline: none;
 }
 
-/* --- LIGHTBOX --- */
+/* ==========================================
+   ILLUSTRATIONS SECTION
+   ========================================== */
+.content-card.illustrations-layout {
+    background-image: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Fullskärmsvy när illustrationer är aktivt */
+.content-card.illustrations-layout.expanded {
+    transition: none !important;
+    background-color: #ffffff !important;
+    top: 6.5rem !important; 
+    left: 240px !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    height: calc(100vh - 6.5rem) !important;
+    aspect-ratio: auto !important;
+    transform: none !important;
+    padding: 2.5rem 3rem !important;
+    border: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+
+.illustrations-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto !important;
+    padding-right: 1rem;
+}
+
+.illustrations-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: normal;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 1rem;
+}
+
+.illustrations-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-bottom: 5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.illustrations-feed .ill-img {
+    width: 75%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    cursor: pointer !important;
+}
+
+.illustrations-feed .ill-img:nth-child(odd) {
+    align-self: flex-start;
+}
+
+.illustrations-feed .ill-img:nth-child(even) {
+    align-self: flex-end;
+}
+
+/* ==========================================
+   LIGHTBOX FÖR BILDER
+   ========================================== */
 .lightbox-modal {
     position: fixed;
     z-index: 9999;
@@ -544,7 +633,7 @@ body {
 }
 
 /* ==========================================
-   MOBILANPASSNING (Skärmar upp till 768px)
+   MOBILANPASSNING (Upp till 768px)
    ========================================== */
 @media (max-width: 768px) {
 
@@ -683,7 +772,8 @@ body {
         width: 100% !important;
     }
 
-    .content-card.projects-layout.expanded {
+    .content-card.projects-layout.expanded,
+    .content-card.illustrations-layout.expanded {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
@@ -764,7 +854,7 @@ body {
         margin-bottom: 0.1rem;
     }
 
-    .project-text-column .body p,
+    .project-text-column body p,
     .project-text-column p {
         font-size: 0.9rem !important;
         line-height: 1.5 !important;
@@ -793,6 +883,22 @@ body {
         object-fit: contain !important;
         align-self: center !important;
         border: none !important;
+    }
+
+    .illustrations-title {
+        font-size: 1.6rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .illustrations-feed {
+        gap: 1.5rem !important;
+        max-width: 100% !important;
+        padding-bottom: 4rem !important;
+    }
+
+    .illustrations-feed .ill-img {
+        width: 100% !important;
+        align-self: center !important;
     }
 
     .consult-layout {
@@ -836,111 +942,5 @@ body {
     .symbols-nav-row {
         overflow-x: auto;
         padding-bottom: 5px;
-    }
-}
-/* ==========================================
-   ILLUSTRATIONS SECTION
-   ========================================== */
-
-/* Fullskärmsvy för illustrationer på skrivbord */
-.content-card.illustrations-layout {
-    transition: none !important;
-    background-image: none !important;
-    background-color: #ffffff !important;
-    top: 6.5rem !important; 
-    left: 240px !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    width: auto !important;
-    max-width: none !important;
-    height: calc(100vh - 6.5rem) !important;
-    aspect-ratio: auto !important;
-    transform: none !important;
-    padding: 2.5rem 3rem !important;
-    border: none !important;
-    display: flex !important;
-    flex-direction: column !important;
-    overflow: hidden !important;
-}
-
-.illustrations-container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto !important;
-    padding-right: 1rem;
-}
-
-.illustrations-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
-    font-weight: normal;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #eeeeee;
-    padding-bottom: 1rem;
-}
-
-/* Öppet bildflöde med zick-zack-placering */
-.illustrations-feed {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    padding-bottom: 5rem;
-    max-width: 900px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-.illustrations-feed .ill-img {
-    width: 75%;
-    height: auto;
-    display: block;
-    object-fit: contain;
-    cursor: pointer !important;
-}
-
-/* Varva vänster- och högerställda bilder för ett dynamiskt flöde */
-.illustrations-feed .ill-img:nth-child(odd) {
-    align-self: flex-start;
-}
-
-.illustrations-feed .ill-img:nth-child(even) {
-    align-self: flex-end;
-}
-
-/* Mobilanpassning för illustrations-kortet */
-@media (max-width: 768px) {
-    .content-card.illustrations-layout {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        max-width: 100vw !important;
-        max-height: 100vh !important;
-        aspect-ratio: auto !important;
-        transform: none !important;
-        display: block !important;
-        padding: 3.5rem 1.2rem 5rem 1.2rem !important;
-        background-color: #ffffff !important;
-        z-index: 3000 !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-    }
-
-    .illustrations-title {
-        font-size: 1.6rem !important;
-        margin-bottom: 1.5rem !important;
-    }
-
-    .illustrations-feed {
-        gap: 1.5rem !important;
-        max-width: 100% !important;
-        padding-bottom: 4rem !important;
-    }
-
-    .illustrations-feed .ill-img {
-        width: 100% !important;
-        align-self: center !important;
     }
 }
