@@ -14,7 +14,7 @@
 <body>
 
     <header class="site-header">
-        <h1 class="logo">Moe Sand</h1>
+        <h1 class="logo"><a href="#" id="site-logo">Moe Sand</a></h1>
     </header>
 
     <main class="content-container">
@@ -44,16 +44,18 @@
         </div>
     </main>
 
+    <!-- ABOUT CARD -->
     <div id="about-card" class="content-card hidden">
         <button class="close-btn" id="close-about">&times;</button>
         <div class="grid-container">
             <div class="grid-box who-box"><p>I am Moe Sand, a non-binary designer located in Sweden, aiming towards an intersection of pedagogy, design and social change/engagement.</p></div>
-            <div class="grid-box what-box"><p>I use design as a tool of constructive resistance and systematic change. My focus is on creating tools/objects/concepts that make complex topics or issues more accessible. </p></div>
+            <div class="grid-box what-box"><p>I use design as a tool of constructive resistance and systematic change. My focus is on creating tools/objects/concepts that make complex topics or issues more accessible.</p></div>
             <div class="grid-box journey-box"><ol><li>Visual Art & Form</li><li>Film Production</li><li>Comic Art</li><li>BFA in Design</li></ol></div>
             <div class="grid-box skills-box"><ul><li>Creative ideation</li><li>Systemic Research</li><li>Social Transformation</li><li>Critical Practice</li><li>Textile+Wood+Metal</li><li>Illustration</li></ul></div>
         </div>
     </div>
 
+    <!-- PROJECTS CARD -->
     <div id="projects-card" class="content-card hidden projects-layout">
         <button class="close-btn" id="close-projects">&times;</button>
         
@@ -61,65 +63,64 @@
             <h2 class="projects-title">Projects</h2>
             <div class="symbol-grid-selection">
                 <button class="symbol-item" data-project="project1">
-                    <img src="project1-icon.png" alt="P1">
+                    <img src="project1-icon.png" alt="The Gender Tool Icon">
                     <span>The Gender Tool</span>
                 </button>
                 <button class="symbol-item" data-project="project2">
-                    <img src="project2-icon.png" alt="P2">
+                    <img src="project2-icon.png" alt="Imagine a changing room Icon">
                     <span>Imagine a changing room</span>
                 </button>
                 <button class="symbol-item" data-project="project3">
-                    <img src="project3-icon.png" alt="P3">
+                    <img src="project3-icon.png" alt="Neighbor-to-neighbor Icon">
                     <span>Neighbor-to-neighbor</span>
                 </button>
                 <button class="symbol-item" data-project="project4">
-                    <img src="project4-icon.png" alt="P4">
+                    <img src="project4-icon.png" alt="The play shed Icon">
                     <span>The play shed</span>
                 </button>
             </div>
         </div>
 
         <div id="projects-detail-view" class="hidden">
-            
-        <div class="project-top-bar">
-    <div class="nav-left-group">
-        <button id="back-to-symbols" class="back-btn">← Back</button>
+            <div class="project-top-bar">
+                <div class="nav-left-group">
+                    <button id="back-to-symbols" class="back-btn">&larr; Back</button>
 
-        <div class="symbols-nav-row">
-            <button class="symbol-nav-item" data-project="project1">
-                <img src="project1-icon.png" alt="P1">
-            </button>
-            <button class="symbol-nav-item" data-project="project2">
-                <img src="project2-icon.png" alt="P2">
-            </button>
-            <button class="symbol-nav-item" data-project="project3">
-                <img src="project3-icon.png" alt="P3">
-            </button>
-            <button class="symbol-nav-item" data-project="project4">
-                <img src="project4-icon.png" alt="P4">
-            </button>
-        </div>
-    </div>
-</div>
+                    <div class="symbols-nav-row">
+                        <button class="symbol-nav-item" data-project="project1">
+                            <img src="project1-icon.png" alt="The Gender Tool Icon">
+                        </button>
+                        <button class="symbol-nav-item" data-project="project2">
+                            <img src="project2-icon.png" alt="Imagine a changing room Icon">
+                        </button>
+                        <button class="symbol-nav-item" data-project="project3">
+                            <img src="project3-icon.png" alt="Neighbor-to-neighbor Icon">
+                        </button>
+                        <button class="symbol-nav-item" data-project="project4">
+                            <img src="project4-icon.png" alt="The play shed Icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
 
             <div class="project-split-container">
                 
+                <!-- PROJECT 1 -->
                 <article id="project1" class="project-content hidden">
                     <div class="project-text-column">
                         <h2>Kroppson - The Gender Tool</h2>
                         <p class="subtitle">Bachelor Thesis / 2026</p>
                         <div class="body">
                             <ul class="project-brief">
-                            <li><strong>Target Audience:</strong> Primary : Educators, Secundary : Students in grades 4–6</li>
-                            <li><strong>Medium / Material:</strong> Textile, Sewn-in magnets, Paper-doll mechanics</li>
-                            <li><strong>Core Concept:</strong> Pedagogical design tool for exploring gender and identity</li>
-                            <li><strong>Context:</strong> Grounded in the Swedish national curriculum & social research</li>
-                         </ul>
-                            <p>Kroppson - The Gender Tool is a pedagogical design tool developed to support teaching for students in grades 4-6. Inspired by paper dolls, Kroppson visualizes biological, psychological, and social aspects of gender through movable layers and interchangeable parts. With sewn-in magnets, the material can be used on classroom whiteboards, encouraging playful and collaborative exploration of gender and human diversity, beyond narrow categories. </p>
-                            <p> </p>
-                            <p>Gender is a complex concept where our collective understanding of the word goes on to shape and affect legislations, healthcare, and social relations. In a time when gender is heavily debated, and gender non-conforming people risk exclusion, misunderstandings and even violence, this tool aims to create a more inclusive foundation of knowledge grounded in the Swedish national curriculum, lived experiences and research. </p>
+                                <li><strong>Target Audience:</strong> Primary : Educators, Secundary : Students in grades 4–6</li>
+                                <li><strong>Medium / Material:</strong> Textile, Sewn-in magnets, Paper-doll mechanics</li>
+                                <li><strong>Core Concept:</strong> Pedagogical design tool for exploring gender and identity</li>
+                                <li><strong>Context:</strong> Grounded in the Swedish national curriculum & social research</li>
+                            </ul>
+                            <p>Kroppson - The Gender Tool is a pedagogical design tool developed to support teaching for students in grades 4-6. Inspired by paper dolls, Kroppson visualizes biological, psychological, and social aspects of gender through movable layers and interchangeable parts. With sewn-in magnets, the material can be used on classroom whiteboards, encouraging playful and collaborative exploration of gender and human diversity, beyond narrow categories.</p>
+                            <p>Gender is a complex concept where our collective understanding of the word goes on to shape and affect legislations, healthcare, and social relations. In a time when gender is heavily debated, and gender non-conforming people risk exclusion, misunderstandings and even violence, this tool aims to create a more inclusive foundation of knowledge grounded in the Swedish national curriculum, lived experiences and research.</p>
 
-                            <img src="p1-process.jpg">
+                            <img src="p1-process.jpg" alt="Processbild för Kroppson">
                         </div>
                     </div>
 
@@ -132,12 +133,13 @@
                     </div>
                 </article>
 
+                <!-- PROJECT 2 -->
                 <article id="project2" class="project-content hidden">
                     <div class="project-text-column">
                         <h2>Imagine a changing room - A forced solution</h2>
                         <p class="subtitle">Conversation piece / 2025</p>
                         <div class="body">
-                            <p>"We cannot create what we cannot imagine" - poet Lucille Clifton. So imagine a world where non-binary people exist. Where non-binary people are included in society. This piece is a critique against the exlusion of gender diverse people in public spaces. In hope to start a conversation about where people are allowed or not, this work showcases the lack of space by creating one. The transportable changing room for non-binary people is as heavy to carry around as the burden of being exluded in society. </p>
+                            <p>"We cannot create what we cannot imagine" - poet Lucille Clifton. So imagine a world where non-binary people exist. Where non-binary people are included in society. This piece is a critique against the exlusion of gender diverse people in public spaces. In hope to start a conversation about where people are allowed or not, this work showcases the lack of space by creating one. The transportable changing room for non-binary people is as heavy to carry around as the burden of being exluded in society.</p>
                         </div>
                     </div>
 
@@ -149,7 +151,6 @@
                             class="p-video" 
                             src="https://www.youtube-nocookie.com/embed/O_E6_Yp4A5E" 
                             title="YouTube video player" 
-                            frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                             referrerpolicy="strict-origin-when-cross-origin"
                             allowfullscreen>
@@ -157,6 +158,7 @@
                     </div>
                 </article>
 
+                <!-- PROJECT 3 -->
                 <article id="project3" class="project-content hidden">
                     <div class="project-text-column">
                         <h2>Neighbour to neighbour</h2>
@@ -171,6 +173,7 @@
                     </div>
                 </article>
 
+                <!-- PROJECT 4 -->
                 <article id="project4" class="project-content hidden">
                     <div class="project-text-column">
                         <h2>The play shed</h2>
@@ -190,22 +193,23 @@
     </div>
 
     <!-- ILLUSTRATIONS CARD -->
-<div id="illustrations-card" class="content-card hidden illustrations-layout">
-    <button class="close-btn" id="close-illustrations">&times;</button>
+    <div id="illustrations-card" class="content-card hidden illustrations-layout">
+        <button class="close-btn" id="close-illustrations">&times;</button>
 
-    <div class="illustrations-container">
-        <h2 class="illustrations-title">Illustrations</h2>
+        <div class="illustrations-container">
+            <h2 class="illustrations-title">Illustrations</h2>
 
-        <div class="illustrations-feed">
-            <img src="ill1.jpg" alt="Illustration 1" class="ill-img p-img">
-            <img src="ill2.jpg" alt="Illustration 2" class="ill-img p-img">
-            <img src="ill3.jpg" alt="Illustration 3" class="ill-img p-img">
-            <img src="ill4.jpg" alt="Illustration 4" class="ill-img p-img">
-            <img src="ill5.jpg" alt="Illustration 5" class="ill-img p-img">
+            <div class="illustrations-feed">
+                <img src="ill1.jpg" alt="Illustration 1" class="ill-img p-img">
+                <img src="ill2.jpg" alt="Illustration 2" class="ill-img p-img">
+                <img src="ill3.jpg" alt="Illustration 3" class="ill-img p-img">
+                <img src="ill4.jpg" alt="Illustration 4" class="ill-img p-img">
+                <img src="ill5.jpg" alt="Illustration 5" class="ill-img p-img">
+            </div>
         </div>
     </div>
-</div>
 
+    <!-- CONSULT CARD -->
     <div id="consult-card" class="content-card hidden consult-layout">
         <button class="close-btn" id="close-consult">&times;</button>
         <div class="consult-content">
@@ -214,21 +218,25 @@
         </div>
     </div>
 
+    <!-- CONTACT CARD -->
     <div id="contact-card" class="content-card hidden contact-layout">
         <button class="close-btn" id="close-contact">&times;</button>
         <div class="contact-content">
             <p class="contact-email"><a href="mailto:moe7sand@gmail.com">moe7sand@gmail.com</a></p>
             <div class="social-links">
-                <p><a href="https://instagram.com/kasskonst" target="_blank">Instagram</a></p>
-                <p><a href="https://linkedin.com/in/moe-sand-a73a02367" target="_blank">LinkedIn</a></p>
+                <p><a href="https://instagram.com/kasskonst" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+                <p><a href="https://linkedin.com/in/moe-sand-a73a02367" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- LIGHTBOX MODAL -->
     <div id="image-lightbox" class="lightbox-modal hidden">
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-content" id="lightbox-img" alt="Förstorad bild">
     </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
 </body>
 </html>
