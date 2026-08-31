@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     
+    // --- POPUP-KORT & MENYHANTERING ---
     const menuItems = [
-        { btnId: 'menu-about',    cardId: 'about-card',    closeId: 'close-about' },
-        { btnId: 'menu-projects', cardId: 'projects-card', closeId: 'close-projects' },
-        { btnId: 'menu-consult',  cardId: 'consult-card',  closeId: 'close-consult' },
-        { btnId: 'menu-contact',  cardId: 'contact-card',  closeId: 'close-contact' }
+        { btnId: 'menu-about',        cardId: 'about-card',        closeId: 'close-about' },
+        { btnId: 'menu-projects',     cardId: 'projects-card',     closeId: 'close-projects' },
+        { btnId: 'menu-illustrations', cardId: 'illustrations-card', closeId: 'close-illustrations' },
+        { btnId: 'menu-consult',      cardId: 'consult-card',      closeId: 'close-consult' },
+        { btnId: 'menu-contact',      cardId: 'contact-card',      closeId: 'close-contact' }
     ];
 
     const projectsCard = document.getElementById('projects-card');
@@ -99,8 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById('image-lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
 
+    // Fångar både projektbilder och illustrationer via klassen .p-img
     document.addEventListener('click', (e) => {
-        if (e.target.matches('.project-images-column .p-img')) {
+        if (e.target.matches('.p-img')) {
             lightboxImg.src = e.target.src;
             lightbox.classList.remove('hidden');
         }
