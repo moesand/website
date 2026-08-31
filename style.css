@@ -944,3 +944,32 @@ body {
         padding-bottom: 5px;
     }
 }
+.pdf-preview-card {
+    display: block;
+    padding: 1.2rem;
+    background-color: #f9f9f9;
+    border-left: 3px solid #ff00ff;
+    text-decoration: none;
+    color: #000;
+    margin-top: 1.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.pdf-preview-card:hover {
+    background-color: #f0f0f0;
+}
+
+.pdf-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #ff00ff;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.pdf-preview-card p {
+    font-size: 0.85rem !important;
+    margin: 0 !important;
+}
