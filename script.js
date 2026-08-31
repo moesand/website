@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectsDetail = document.getElementById('projects-detail-view');
     const backBtn = document.getElementById('back-to-symbols');
 
-    // Funktion för att stänga alla rum
     function closeAllCards() {
         menuItems.forEach(item => {
             const card = document.getElementById(item.cardId);
@@ -24,13 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
         
-        // Återställ projektkortet till symbolvyn om det stängs
         if (projectsCard) projectsCard.classList.remove('expanded');
         if (projectsInitial) projectsInitial.classList.remove('hidden');
         if (projectsDetail) projectsDetail.classList.add('hidden');
     }
 
-    // Koppla klickhändelser till alla menyval och stäng-knappar
     menuItems.forEach(item => {
         const btn = document.getElementById(item.btnId);
         const card = document.getElementById(item.cardId);
@@ -40,11 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const isHidden = card.classList.contains('hidden');
-                closeAllCards(); // Stäng andra öppna kort först
+                closeAllCards();
                 if (isHidden) {
                     card.classList.remove('hidden');
-                    
-                    // Om vi öppnar illustrations-kortet, gör det bredare direkt
                     if (card.id === 'illustrations-card') {
                         card.classList.add('expanded');
                     }
@@ -53,38 +48,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (closeBtn && card) {
-            closeBtn.addEventListener('click', () => {
-                closeAllCards();
-            });
+            closeBtn.addEventListener('click', () => closeAllCards());
         }
     });
 
-    // --- KLICK PÅ LOGOTYP (GÅ TILL STARTSIDA) ---
+    // --- KLICK PÅ NAMN / LOGOTYP (STARTSIDA) ---
     const logoLink = document.getElementById('site-logo');
     if (logoLink) {
         logoLink.addEventListener('click', (e) => {
             e.preventDefault();
-            closeAllCards(); // Stänger alla öppna rum
+            closeAllCards();
         });
     }
 
-    // --- PROJEKT-KORTETS INTERNA NAVIGERING ---
-    
-    // Funktion för att visa ett specifikt projekt
+    // --- VÄXLA PROJEKT ---
     function showProject(targetId) {
-        // Expandera kortets bredd
         if (projectsCard) projectsCard.classList.add('expanded');
-        
-        // Dölj symbol-valet och visa detaljvyn
         if (projectsInitial) projectsInitial.classList.add('hidden');
         if (projectsDetail) projectsDetail.classList.remove('hidden');
 
-        // Dölj alla projektartiklar och visa den valda
         document.querySelectorAll('.project-content').forEach(p => p.classList.add('hidden'));
         const activeProject = document.getElementById(targetId);
         if (activeProject) activeProject.classList.remove('hidden');
 
-        // Uppdatera vilken symbol som är markerad i nav-raden
         document.querySelectorAll('.symbol-nav-item').forEach(navBtn => {
             if (navBtn.getAttribute('data-project') === targetId) {
                 navBtn.classList.add('active');
@@ -93,12 +79,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Scrolla upp till toppen av projektet
+        // Nollställer scrollen så att projektet öppnas högst upp
         if (projectsCard) projectsCard.scrollTop = 0;
+
+        const imgCol = activeProject ? activeProject.querySelector('.project-images-column') : null;
+        if (imgCol) imgCol.scrollTop = 0;
+
         window.scrollTo(0, 0);
     }
 
-    // Klick på stor symbol i initiala vyn
     document.querySelectorAll('.symbol-item').forEach(btn => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('data-project');
@@ -106,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Klick på liten symbol i nav-raden
     document.querySelectorAll('.symbol-nav-item').forEach(btn => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('data-project');
@@ -114,28 +102,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Klick på Tillbaka-knappen (&larr; Back)
     if (backBtn) {
         backBtn.addEventListener('click', () => {
-            // Återgå till smalare kort och visa symbol-grid igen
             if (projectsCard) projectsCard.classList.remove('expanded');
             if (projectsDetail) projectsDetail.classList.add('hidden');
             if (projectsInitial) projectsInitial.classList.remove('hidden');
         });
     }
 
-    // Stäng kort med ESC-tangenten
     window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeAllCards();
-        }
+        if (e.key === 'Escape') closeAllCards();
     });
 
-    // --- LIGHTBOX FÖR BILDER ---
+    // --- LIGHTBOX FÖR BILDER (KLICKA FÖR HELSKÄRM) ---
     const lightbox = document.getElementById('image-lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
 
-    // Lyssna på klick på alla bilder som har klassen .p-img eller .ill-img
     document.addEventListener('click', (e) => {
         if (e.target.matches('.p-img, .ill-img')) {
             if (lightboxImg && lightbox) {
@@ -145,25 +127,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Stäng lightbox vid klick på den
     if (lightbox) {
         lightbox.addEventListener('click', () => {
             lightbox.classList.add('hidden');
         });
     }
 
-    // Stäng lightbox med ESC
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && lightbox) {
             lightbox.classList.add('hidden');
         }
     });
 
-    // --- BILDSPEL PÅ STARTSIDAN ---
+    // --- AUTOMATISKT BILDSPEL PÅ STARTSIDAN ---
     const heroImg = document.getElementById('hero-image');
-    
     if (heroImg) {
-        // Lista med dina bildfiler som ska rotera på startsidan
         const images = [
             'desiredlink.jpg',
             'butter2.jpg',
@@ -173,12 +151,11 @@ document.addEventListener("DOMContentLoaded", () => {
         ];
         
         let currentIndex = 0;
-        const intervalTime = 3000; // Byter bild var 3:e sekund (3000 ms)
+        const intervalTime = 3000; // Byt bild var 3:e sekund
 
         setInterval(() => {
             currentIndex = (currentIndex + 1) % images.length;
             heroImg.src = images[currentIndex];
         }, intervalTime);
     }
-
 });
