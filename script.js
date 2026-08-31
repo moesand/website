@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // --- KLICK PÅ NAMN / LOGOTYP (STARTSIDA) ---
+    // --- KLICK PÅ LOGOTYP (GÅ TILL STARTSIDA) ---
     const logoLink = document.getElementById('site-logo');
     if (logoLink) {
         logoLink.addEventListener('click', (e) => {
@@ -79,12 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Nollställer scrollen så att projektet öppnas högst upp
         if (projectsCard) projectsCard.scrollTop = 0;
-
-        const imgCol = activeProject ? activeProject.querySelector('.project-images-column') : null;
-        if (imgCol) imgCol.scrollTop = 0;
-
         window.scrollTo(0, 0);
     }
 
@@ -114,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === 'Escape') closeAllCards();
     });
 
-    // --- LIGHTBOX FÖR BILDER (KLICKA FÖR HELSKÄRM) ---
+    // --- LIGHTBOX FÖR BILDER ---
     const lightbox = document.getElementById('image-lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
 
@@ -139,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // --- AUTOMATISKT BILDSPEL PÅ STARTSIDAN ---
+    // --- BILDSPEL PÅ STARTSIDAN ---
     const heroImg = document.getElementById('hero-image');
     if (heroImg) {
         const images = [
@@ -151,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ];
         
         let currentIndex = 0;
-        const intervalTime = 3000; // Byt bild var 3:e sekund
+        const intervalTime = 3000;
 
         setInterval(() => {
             currentIndex = (currentIndex + 1) % images.length;
