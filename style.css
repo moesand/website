@@ -447,12 +447,71 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.project-text-column .body p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+.project-text-column img {
+    width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+    display: block;
+}
+
+/* PDF Card */
+.pdf-preview-card {
+    display: block;
+    padding: 1.2rem;
+    background-color: #f9f9f9;
+    border-left: 3px solid #ff00ff;
+    text-decoration: none;
+    color: #000;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.pdf-preview-card:hover {
+    background-color: #f0f0f0;
+}
+
+.pdf-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #ff00ff;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.pdf-preview-card p {
+    font-size: 0.85rem !important;
+    margin: 0 !important;
+}
+
+/* Impact & Goals Sektion */
+.impact-goals-wrapper {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eeeeee;
+}
+
+.impact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
 .project-brief {
     list-style: none;
     padding: 0;
-    margin: 0 0 1.8rem 0;
-    border-bottom: 1px solid #eeeeee;
-    padding-bottom: 1.2rem;
+    margin: 0;
 }
 
 .project-brief li {
@@ -472,20 +531,7 @@ body {
     margin-bottom: 0.2rem;
 }
 
-.project-text-column body p {
-    font-size: 0.88rem;
-    line-height: 1.7;
-    color: #222;
-    margin-bottom: 1rem;
-}
-
-.project-text-column img {
-    width: 100%;
-    height: auto;
-    margin-top: 1.5rem;
-    display: block;
-}
-
+/* Högerkolumn för bilder */
 .project-images-column {
     flex: 1;
     height: auto !important;
@@ -535,7 +581,6 @@ body {
     box-shadow: none !important;
 }
 
-/* Fullskärmsvy när illustrationer är aktivt */
 .content-card.illustrations-layout.expanded {
     transition: none !important;
     background-color: #ffffff !important;
@@ -854,7 +899,7 @@ body {
         margin-bottom: 0.1rem;
     }
 
-    .project-text-column body p,
+    .project-text-column .body p,
     .project-text-column p {
         font-size: 0.9rem !important;
         line-height: 1.5 !important;
@@ -875,13 +920,19 @@ body {
     }
 
     .project-images-column img,
-    .project-images-column .p-img,
+    .project-images-column .p-img {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
+        object-fit: contain !important;
+        align-self: center !important;
+        border: none !important;
+    }
+
     .project-images-column .p-video {
         width: 100% !important;
         aspect-ratio: 16 / 9 !important;
         height: auto !important;
-        object-fit: contain !important;
-        align-self: center !important;
         border: none !important;
     }
 
@@ -943,63 +994,4 @@ body {
         overflow-x: auto;
         padding-bottom: 5px;
     }
-}
-.pdf-preview-card {
-    display: block;
-    padding: 1.2rem;
-    background-color: #f9f9f9;
-    border-left: 3px solid #ff00ff;
-    text-decoration: none;
-    color: #000;
-    margin-top: 1.5rem;
-    transition: background-color 0.2s ease;
-}
-
-.pdf-preview-card:hover {
-    background-color: #f0f0f0;
-}
-
-.pdf-tag {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    color: #ff00ff;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-    display: block;
-    margin-bottom: 0.3rem;
-}
-
-.pdf-preview-card p {
-    font-size: 0.85rem !important;
-    margin: 0 !important;
-}
-.sdg-container {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eeeeee;
-}
-
-.sdg-title {
-    display: block;
-    font-size: 0.72rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #ff00ff;
-    margin-bottom: 0.6rem;
-}
-
-.sdg-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.sdg-tag {
-    font-size: 0.75rem;
-    background-color: #f4f4f4;
-    color: #000000;
-    padding: 0.3rem 0.6rem;
-    border-radius: 3px;
-    border: 1px solid #e0e0e0;
 }
