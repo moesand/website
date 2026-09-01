@@ -973,3 +973,33 @@ body {
     font-size: 0.85rem !important;
     margin: 0 !important;
 }
+.sdg-container {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eeeeee;
+}
+
+.sdg-title {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ff00ff;
+    margin-bottom: 0.6rem;
+}
+
+.sdg-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.sdg-tag {
+    font-size: 0.75rem;
+    background-color: #f4f4f4;
+    color: #000000;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    border: 1px solid #e0e0e0;
+}
